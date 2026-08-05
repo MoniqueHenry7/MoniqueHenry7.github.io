@@ -8,35 +8,1071 @@
         content="width=device-width, initial-scale=1.0"
     >
 
+    <meta
+        name="description"
+        content="Software Design and Engineering enhancement for Monique Henry's Computer Science ePortfolio."
+    >
+
     <title>
         Software Design and Engineering | Monique Henry
     </title>
+
+    <style>
+        :root {
+            --primary: #173f5f;
+            --primary-dark: #0f2d44;
+            --secondary: #20639b;
+            --accent: #3caea3;
+            --accent-light: #e8f6f4;
+            --background: #f4f7fa;
+            --surface: #ffffff;
+            --text: #1f2933;
+            --muted: #5f6c7b;
+            --border: #d9e2ec;
+            --shadow: 0 10px 30px rgba(15, 45, 68, 0.10);
+            --radius: 14px;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            margin: 0;
+            color: var(--text);
+            background: var(--background);
+            font-family:
+                -apple-system,
+                BlinkMacSystemFont,
+                "Segoe UI",
+                Roboto,
+                Helvetica,
+                Arial,
+                sans-serif;
+            line-height: 1.75;
+        }
+
+        a {
+            color: var(--secondary);
+        }
+
+        a:hover,
+        a:focus {
+            color: var(--primary-dark);
+        }
+
+        .container {
+            width: min(1050px, 92%);
+            margin: 0 auto;
+        }
+
+        /* Header */
+
+        .site-header {
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            background: rgba(255, 255, 255, 0.97);
+            border-bottom: 1px solid var(--border);
+            backdrop-filter: blur(8px);
+        }
+
+        .nav-container {
+            min-height: 72px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 24px;
+        }
+
+        .site-name {
+            color: var(--primary);
+            font-size: 1.15rem;
+            font-weight: 750;
+            text-decoration: none;
+        }
+
+        .site-nav {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: flex-end;
+            gap: 8px;
+        }
+
+        .site-nav a {
+            padding: 8px 11px;
+            color: var(--text);
+            font-size: 0.94rem;
+            font-weight: 650;
+            text-decoration: none;
+            border-radius: 7px;
+        }
+
+        .site-nav a:hover,
+        .site-nav a:focus {
+            color: var(--primary);
+            background: var(--accent-light);
+        }
+
+        /* Hero */
+
+        .page-hero {
+            padding: 82px 0;
+            color: #ffffff;
+            background:
+                linear-gradient(
+                    135deg,
+                    var(--primary-dark),
+                    var(--secondary)
+                );
+        }
+
+        .eyebrow {
+            margin: 0 0 10px;
+            color: #bce9e3;
+            font-size: 0.84rem;
+            font-weight: 750;
+            letter-spacing: 0.13em;
+            text-transform: uppercase;
+        }
+
+        .page-hero h1 {
+            max-width: 850px;
+            margin: 0 0 18px;
+            font-size: clamp(2.2rem, 5vw, 4rem);
+            line-height: 1.1;
+            letter-spacing: -0.03em;
+        }
+
+        .hero-description {
+            max-width: 790px;
+            margin: 0;
+            color: #e2edf4;
+            font-size: 1.1rem;
+        }
+
+        .hero-details {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 26px;
+        }
+
+        .hero-details span {
+            padding: 7px 11px;
+            color: #ffffff;
+            font-size: 0.88rem;
+            font-weight: 650;
+            border: 1px solid rgba(255, 255, 255, 0.35);
+            border-radius: 999px;
+            background: rgba(255, 255, 255, 0.08);
+        }
+
+        /* Main content */
+
+        main {
+            padding: 64px 0 80px;
+        }
+
+        .content-section {
+            margin-bottom: 32px;
+            padding: 34px;
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            background: var(--surface);
+            box-shadow: var(--shadow);
+        }
+
+        .content-section h2 {
+            margin: 0 0 16px;
+            color: var(--primary-dark);
+            font-size: clamp(1.55rem, 3vw, 2.1rem);
+            line-height: 1.25;
+        }
+
+        .content-section h3 {
+            margin: 28px 0 10px;
+            color: var(--primary);
+            font-size: 1.2rem;
+        }
+
+        .content-section p {
+            margin: 0 0 17px;
+        }
+
+        .content-section p:last-child {
+            margin-bottom: 0;
+        }
+
+        .section-introduction {
+            color: var(--muted);
+            font-size: 1.03rem;
+        }
+
+        /* Overview facts */
+
+        .fact-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 16px;
+            margin-top: 24px;
+        }
+
+        .fact-card {
+            padding: 20px;
+            border-left: 5px solid var(--accent);
+            border-radius: 8px;
+            background: #f7fafc;
+        }
+
+        .fact-card h3 {
+            margin: 0 0 6px;
+            font-size: 1rem;
+        }
+
+        .fact-card p {
+            margin: 0;
+            color: var(--muted);
+        }
+
+        /* Comparison table */
+
+        .table-wrapper {
+            margin-top: 22px;
+            overflow-x: auto;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            min-width: 700px;
+        }
+
+        th,
+        td {
+            padding: 16px;
+            text-align: left;
+            vertical-align: top;
+            border: 1px solid var(--border);
+        }
+
+        th {
+            color: #ffffff;
+            background: var(--primary);
+        }
+
+        tbody tr:nth-child(even) {
+            background: #f7fafc;
+        }
+
+        td:first-child {
+            width: 18%;
+            color: var(--primary-dark);
+            font-weight: 700;
+        }
+
+        /* Improvement cards */
+
+        .improvement-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 18px;
+            margin-top: 24px;
+        }
+
+        .improvement-card {
+            padding: 23px;
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            background: #fbfdfe;
+        }
+
+        .improvement-card h3 {
+            margin: 0 0 8px;
+            color: var(--primary);
+        }
+
+        .improvement-card p {
+            margin: 0;
+            color: var(--muted);
+        }
+
+        /* Evidence placeholder */
+
+        .evidence-placeholder {
+            padding: 38px;
+            text-align: center;
+            border: 2px dashed #9fb8c9;
+            border-radius: 12px;
+            background: #f7fafc;
+        }
+
+        .evidence-placeholder strong {
+            display: block;
+            margin-bottom: 8px;
+            color: var(--primary);
+            font-size: 1.08rem;
+        }
+
+        .evidence-placeholder p {
+            max-width: 680px;
+            margin: 0 auto;
+            color: var(--muted);
+        }
+
+        /* Testing */
+
+        .testing-summary {
+            display: grid;
+            grid-template-columns: 180px 1fr;
+            gap: 22px;
+            align-items: center;
+            margin-top: 22px;
+            padding: 24px;
+            color: #ffffff;
+            border-radius: 12px;
+            background:
+                linear-gradient(
+                    135deg,
+                    var(--primary),
+                    var(--secondary)
+                );
+        }
+
+        .test-number {
+            text-align: center;
+        }
+
+        .test-number strong {
+            display: block;
+            font-size: 3.4rem;
+            line-height: 1;
+        }
+
+        .test-number span {
+            color: #d8e7f1;
+            font-size: 0.9rem;
+            font-weight: 650;
+            text-transform: uppercase;
+        }
+
+        .testing-summary p {
+            margin: 0;
+            color: #eef6fa;
+        }
+
+        /* Technologies */
+
+        .technology-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 9px;
+            padding: 0;
+            margin: 22px 0 0;
+            list-style: none;
+        }
+
+        .technology-list li {
+            padding: 7px 11px;
+            color: var(--primary-dark);
+            font-size: 0.9rem;
+            font-weight: 650;
+            border: 1px solid #b8ddd8;
+            border-radius: 999px;
+            background: var(--accent-light);
+        }
+
+        /* Buttons */
+
+        .button-row {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            margin-top: 24px;
+        }
+
+        .button {
+            display: inline-block;
+            padding: 12px 18px;
+            color: #ffffff;
+            font-weight: 700;
+            text-decoration: none;
+            border-radius: 8px;
+            background: var(--secondary);
+            transition:
+                transform 0.2s ease,
+                background 0.2s ease;
+        }
+
+        .button:hover,
+        .button:focus {
+            color: #ffffff;
+            background: var(--primary-dark);
+            transform: translateY(-2px);
+        }
+
+        .button-outline {
+            color: var(--primary);
+            border: 2px solid var(--primary);
+            background: transparent;
+        }
+
+        .button-outline:hover,
+        .button-outline:focus {
+            color: #ffffff;
+            background: var(--primary);
+        }
+
+        /* Next page navigation */
+
+        .page-navigation {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 20px;
+            padding: 26px;
+            border-radius: var(--radius);
+            background: var(--primary-dark);
+        }
+
+        .page-navigation p {
+            margin: 0;
+            color: #d8e7f1;
+        }
+
+        .page-navigation strong {
+            display: block;
+            color: #ffffff;
+            font-size: 1.1rem;
+        }
+
+        .page-navigation a {
+            flex-shrink: 0;
+            padding: 11px 16px;
+            color: var(--primary-dark);
+            font-weight: 750;
+            text-decoration: none;
+            border-radius: 8px;
+            background: #ffffff;
+        }
+
+        /* Footer */
+
+        .site-footer {
+            padding: 34px 0;
+            color: #d8e7f1;
+            background: var(--primary-dark);
+        }
+
+        .footer-content {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 20px;
+        }
+
+        .footer-content p {
+            margin: 0;
+        }
+
+        .footer-content a {
+            color: #ffffff;
+            font-weight: 650;
+            text-decoration: none;
+        }
+
+        .footer-content a:hover,
+        .footer-content a:focus {
+            text-decoration: underline;
+        }
+
+        /* Responsive design */
+
+        @media (max-width: 800px) {
+            .fact-grid,
+            .improvement-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .testing-summary {
+                grid-template-columns: 1fr;
+            }
+
+            .test-number {
+                text-align: left;
+            }
+        }
+
+        @media (max-width: 680px) {
+            .site-header {
+                position: static;
+            }
+
+            .nav-container {
+                padding: 15px 0;
+                align-items: flex-start;
+                flex-direction: column;
+            }
+
+            .site-nav {
+                justify-content: flex-start;
+            }
+
+            .page-hero {
+                padding: 64px 0;
+            }
+
+            main {
+                padding: 42px 0 60px;
+            }
+
+            .content-section {
+                padding: 24px;
+            }
+
+            .page-navigation,
+            .footer-content {
+                align-items: flex-start;
+                flex-direction: column;
+            }
+
+            .page-navigation a {
+                width: 100%;
+                text-align: center;
+            }
+        }
+    </style>
 </head>
 
 <body>
-    <header>
-        <nav>
-            <a href="index.html">Home</a>
-        </nav>
+    <header class="site-header">
+        <div class="container nav-container">
+            <a class="site-name" href="index.html">
+                Monique Henry
+            </a>
+
+            <nav
+                class="site-nav"
+                aria-label="Main navigation"
+            >
+                <a href="index.html">Home</a>
+                <a href="#overview">Overview</a>
+                <a href="#improvements">Improvements</a>
+                <a href="#reflection">Reflection</a>
+                <a href="algorithms.html">Next Enhancement</a>
+            </nav>
+        </div>
     </header>
 
+    <section class="page-hero">
+        <div class="container">
+            <p class="eyebrow">
+                CS 499 Enhancement One
+            </p>
+
+            <h1>
+                Software Design and Engineering
+            </h1>
+
+            <p class="hero-description">
+                A modular redesign of the Grazioso Salvare animal shelter
+                dashboard into an explainable Rescue Match Recommendation
+                System.
+            </p>
+
+            <div class="hero-details">
+                <span>Original Course: CS 340</span>
+                <span>Python and Dash</span>
+                <span>MongoDB Integration</span>
+                <span>Modular Architecture</span>
+                <span>User-Centered Design</span>
+            </div>
+        </div>
+    </section>
+
     <main>
-        <h1>Software Design and Engineering</h1>
+        <div class="container">
+            <section
+                id="overview"
+                class="content-section"
+            >
+                <h2>Artifact Overview</h2>
 
-        <p>
-            This page presents Enhancement One of my Grazioso Salvare
-            Rescue Match Recommendation System.
-        </p>
+                <p>
+                    The artifact selected for the software design and
+                    engineering category is the Grazioso Salvare animal rescue
+                    dashboard originally created in CS 340: Client/Server
+                    Development. The application was developed using Python,
+                    Dash, Pandas, MongoDB, Plotly, Dash Leaflet, and a custom
+                    <code>AnimalShelter</code> data-access class.
+                </p>
 
-        <p>
-            The complete artifact overview, enhancement evidence,
-            reflection narrative, screenshots, and source-code links
-            will be presented here.
-        </p>
+                <p>
+                    The original dashboard helped users review Austin Animal
+                    Center records and identify dogs that could potentially
+                    satisfy water rescue, mountain or wilderness rescue, and
+                    disaster or individual tracking requirements. Users could
+                    apply a rescue filter, review matching records in an
+                    interactive table, view a breed chart, and display a
+                    selected animal on a map.
+                </p>
 
-        <a href="index.html">
-            Return to the ePortfolio Homepage
-        </a>
+                <p>
+                    Although the original application was functional, much of
+                    its database, filtering, interface, chart, map, and
+                    callback logic was concentrated in a single notebook.
+                    This made the project more difficult to maintain, test,
+                    secure, reuse, and expand.
+                </p>
+
+                <div class="fact-grid">
+                    <article class="fact-card">
+                        <h3>Original Artifact</h3>
+
+                        <p>
+                            CS 340 Grazioso Salvare animal rescue dashboard.
+                        </p>
+                    </article>
+
+                    <article class="fact-card">
+                        <h3>Enhanced Artifact</h3>
+
+                        <p>
+                            Grazioso Salvare Rescue Match Recommendation
+                            System.
+                        </p>
+                    </article>
+
+                    <article class="fact-card">
+                        <h3>Primary Focus</h3>
+
+                        <p>
+                            Modular software architecture, maintainability,
+                            reliability, testing, and user experience.
+                        </p>
+                    </article>
+
+                    <article class="fact-card">
+                        <h3>Intended Users</h3>
+
+                        <p>
+                            Rescue professionals who need understandable
+                            decision-support information.
+                        </p>
+                    </article>
+                </div>
+            </section>
+
+            <section class="content-section">
+                <h2>Why I Selected This Artifact</h2>
+
+                <p>
+                    I selected this artifact because it demonstrates several
+                    important areas of software engineering in one application,
+                    including database connectivity, application logic,
+                    event-driven callbacks, user-interface design, data
+                    visualization, and interaction between a data layer and a
+                    presentation layer.
+                </p>
+
+                <p>
+                    The project also provided an opportunity to demonstrate
+                    that professional software engineering involves more than
+                    making an application function. A professional computing
+                    solution should be organized, understandable, testable,
+                    maintainable, secure, and useful to the people who depend
+                    on it.
+                </p>
+            </section>
+
+            <section
+                id="improvements"
+                class="content-section"
+            >
+                <h2>Original and Enhanced Design</h2>
+
+                <p class="section-introduction">
+                    The enhancement preserved the original purpose of the
+                    dashboard while improving its internal architecture,
+                    reliability, decision-support features, and user
+                    communication.
+                </p>
+
+                <div class="table-wrapper">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Area</th>
+                                <th>Original Artifact</th>
+                                <th>Enhancement One</th>
+                            </tr>
+                        </thead>
+
+                        <tbody>
+                            <tr>
+                                <td>Architecture</td>
+
+                                <td>
+                                    Most dashboard responsibilities were
+                                    located in one notebook.
+                                </td>
+
+                                <td>
+                                    Configuration, data access, recommendation
+                                    rules, service logic, interface layout,
+                                    callbacks, and startup wiring were separated
+                                    into focused modules.
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td>Decision Support</td>
+
+                                <td>
+                                    Rescue selections relied primarily on fixed
+                                    database filters.
+                                </td>
+
+                                <td>
+                                    The enhanced system assigns an explainable
+                                    suitability score using breed, age, sex,
+                                    and outcome criteria.
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td>User Communication</td>
+
+                                <td>
+                                    Users received filtered records, a chart,
+                                    and a map.
+                                </td>
+
+                                <td>
+                                    Users receive ranked recommendations,
+                                    match levels, match reasons, an active
+                                    profile explanation, and a top-candidate
+                                    summary.
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td>Reliability</td>
+
+                                <td>
+                                    Some operations relied on fixed DataFrame
+                                    column positions or assumed that fields
+                                    existed.
+                                </td>
+
+                                <td>
+                                    The enhanced design uses named fields,
+                                    coordinate validation, empty-result
+                                    handling, safe column removal, and
+                                    controlled selections.
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td>Security Design</td>
+
+                                <td>
+                                    Legacy connection information was closely
+                                    connected to the source, and update or
+                                    deletion operations were insufficiently
+                                    restricted.
+                                </td>
+
+                                <td>
+                                    Credentials were moved to environment-based
+                                    configuration, inputs were validated, and
+                                    unsafe empty update or delete queries were
+                                    rejected.
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td>Testing</td>
+
+                                <td>
+                                    The original project did not include focused
+                                    automated tests for the recommendation
+                                    behavior.
+                                </td>
+
+                                <td>
+                                    Automated tests were added for scoring,
+                                    filtering, ranking, configuration,
+                                    validation, security safeguards, mapping,
+                                    and application startup.
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+
+            <section class="content-section">
+                <h2>Key Software Engineering Improvements</h2>
+
+                <div class="improvement-grid">
+                    <article class="improvement-card">
+                        <h3>Modular Architecture</h3>
+
+                        <p>
+                            Application responsibilities were separated into
+                            focused components so individual features can be
+                            maintained and tested independently.
+                        </p>
+                    </article>
+
+                    <article class="improvement-card">
+                        <h3>Explainable Recommendations</h3>
+
+                        <p>
+                            The dashboard now communicates why a candidate was
+                            recommended instead of only displaying a strict
+                            matching result.
+                        </p>
+                    </article>
+
+                    <article class="improvement-card">
+                        <h3>Improved Reliability</h3>
+
+                        <p>
+                            Named fields, reusable service functions, empty
+                            result handling, and validation reduce dependence
+                            on fragile assumptions.
+                        </p>
+                    </article>
+
+                    <article class="improvement-card">
+                        <h3>Configuration Security</h3>
+
+                        <p>
+                            Database configuration was separated from the main
+                            application logic to avoid exposing sensitive
+                            connection details.
+                        </p>
+                    </article>
+
+                    <article class="improvement-card">
+                        <h3>User-Centered Interface</h3>
+
+                        <p>
+                            Result summaries, match reasons, rankings, and
+                            visualizations make technical results easier for
+                            rescue professionals to understand.
+                        </p>
+                    </article>
+
+                    <article class="improvement-card">
+                        <h3>Automated Testing</h3>
+
+                        <p>
+                            Tests provide evidence that the refactored
+                            architecture preserves expected functionality and
+                            handles invalid or incomplete data safely.
+                        </p>
+                    </article>
+                </div>
+            </section>
+
+            <section class="content-section">
+                <h2>Enhancement Evidence</h2>
+
+                <div class="evidence-placeholder">
+                    <strong>
+                        Enhanced Dashboard Screenshot
+                    </strong>
+
+                    <p>
+                        A screenshot of the completed Rescue Match
+                        Recommendation Dashboard will be added here during the
+                        next ePortfolio step.
+                    </p>
+                </div>
+
+                <ul class="technology-list">
+                    <li>Python</li>
+                    <li>Dash</li>
+                    <li>Pandas</li>
+                    <li>MongoDB</li>
+                    <li>PyMongo</li>
+                    <li>Plotly</li>
+                    <li>Dash Leaflet</li>
+                    <li>Git</li>
+                    <li>GitHub</li>
+                    <li>Automated Testing</li>
+                </ul>
+            </section>
+
+            <section class="content-section">
+                <h2>Testing and Evaluation</h2>
+
+                <p>
+                    Automated and manual testing were used to confirm that the
+                    software redesign preserved the application’s core
+                    functionality. The tests evaluated recommendation scoring,
+                    filtering, ranking, configuration validation, database
+                    safeguards, coordinate validation, rescue-rule behavior,
+                    and application startup.
+                </p>
+
+                <div class="testing-summary">
+                    <div class="test-number">
+                        <strong>45</strong>
+                        <span>Passing Tests</span>
+                    </div>
+
+                    <p>
+                        The completed Enhancement One test suite confirmed that
+                        the recommendation behavior, modular services, input
+                        safeguards, database protections, map coordinates, and
+                        startup components operated as expected. Manual review
+                        also confirmed that the table, chart, map, callbacks,
+                        rescue filters, recommendation card, and ranked
+                        results remained functional after refactoring.
+                    </p>
+                </div>
+            </section>
+
+            <section
+                id="reflection"
+                class="content-section"
+            >
+                <h2>Reflection Narrative</h2>
+
+                <p>
+                    Enhancing this artifact strengthened my understanding of
+                    modular architecture, separation of concerns, reusable
+                    services, input validation, error handling, automated
+                    testing, and user-centered design. The original project
+                    demonstrated that I could develop a working database-driven
+                    dashboard. The enhanced project demonstrates that I can
+                    evaluate an existing system and redesign it using more
+                    professional software engineering practices.
+                </p>
+
+                <p>
+                    One of the most important challenges was preserving the
+                    table, chart, map, rescue filters, and callback behavior
+                    while reorganizing the application. In the original
+                    notebook, data moved directly between MongoDB queries,
+                    Pandas DataFrames, Dash callbacks, and visual components.
+                    Separating these responsibilities required me to trace the
+                    complete data flow and establish clear inputs and outputs
+                    between the modules.
+                </p>
+
+                <p>
+                    I addressed this challenge by dividing the application into
+                    configuration, data-access, rescue-rule, recommendation,
+                    service, layout, callback, and startup responsibilities.
+                    This design reduced unnecessary dependencies and made it
+                    possible to test important behavior without running the
+                    entire dashboard or requiring every component to be active
+                    at the same time.
+                </p>
+
+                <p>
+                    Another important improvement was changing the dashboard
+                    from a fixed filtering tool into an explainable
+                    decision-support application. The enhanced interface does
+                    not simply identify animals that meet a strict query. It
+                    ranks candidates, presents suitability scores, and
+                    explains the characteristics that contributed to each
+                    recommendation. This makes the results more useful to both
+                    technical and nontechnical users.
+                </p>
+
+                <p>
+                    The enhancement also reinforced the importance of testing
+                    during refactoring. A large structural change can create
+                    unexpected problems even when the visible interface appears
+                    unchanged. Automated tests allowed me to evaluate
+                    recommendation behavior, validation, configuration,
+                    database safeguards, mapping, and application startup while
+                    protecting the original functionality.
+                </p>
+
+                <p>
+                    This artifact supports the computer science outcomes
+                    involving professional communication, the design and
+                    evaluation of computing solutions, the use of
+                    industry-standard tools and practices, and the development
+                    of a security-focused mindset. The source-code structure
+                    communicates technical decisions to developers, while the
+                    dashboard communicates recommendation results to users in
+                    a clear and understandable format.
+                </p>
+
+                <p>
+                    The most significant result of this enhancement is the
+                    overall organization of the application. The original
+                    artifact showed that I could make a client/server
+                    application function. The enhanced artifact shows that I
+                    can engineer a system that is easier to understand, test,
+                    maintain, secure, and expand as requirements change.
+                </p>
+            </section>
+
+            <section class="content-section">
+                <h2>Artifact Files</h2>
+
+                <p>
+                    The original source files, completed Enhancement One
+                    source code, supporting narrative, and dashboard
+                    screenshots will be added to the ePortfolio repository in
+                    the next step.
+                </p>
+
+                <div class="button-row">
+                    <a
+                        class="button"
+                        href="https://github.com/MoniqueHenry7"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                    >
+                        View My GitHub Profile
+                    </a>
+
+                    <a
+                        class="button button-outline"
+                        href="index.html"
+                    >
+                        Return to Homepage
+                    </a>
+                </div>
+            </section>
+
+            <section class="page-navigation">
+                <p>
+                    <strong>Next Enhancement</strong>
+                    Algorithms and Data Structures
+                </p>
+
+                <a href="algorithms.html">
+                    Continue to Enhancement Two →
+                </a>
+            </section>
+        </div>
     </main>
+
+    <footer class="site-footer">
+        <div class="container footer-content">
+            <p>
+                © 2026 Monique Henry. Computer Science ePortfolio.
+            </p>
+
+            <a href="index.html">
+                Return to Homepage
+            </a>
+        </div>
+    </footer>
 </body>
 </html>
