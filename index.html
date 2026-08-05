@@ -1,11 +1,1006 @@
 <!DOCTYPE html>
-<html>
-  <head>
-    <title>Monique Henry ePortfolio</title>
-  </head>
-  <body>
-    <h1>Monique Henry ePortfolio</h1>
-    <p>Welcome to my Computer Science ePortfolio.</p>
-    <p>This ePortfolio showcases my CS 340 artifact enhancements and demonstrates my growth in software engineering.</p>
-  </body>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=devi:contentReference[oaicite:0]{index=0}
+    >
+
+    <meta
+        name="description"
+        content="Monique Henry's Computer Science ePortfolio featuring software design, algorithms, data structures, and database enhancements."
+    >
+
+    <title>Monique Henry | Computer Science ePortfolio</title>
+
+    <style>
+        :root {
+            --primary: #173f5f;
+            --primary-dark: #0f2d44;
+            --secondary: #20639b;
+            --accent: #3caea3;
+            --light-accent: #e8f6f4;
+            --background: #f4f7fa;
+            --surface: #ffffff;
+            --text: #1f2933;
+            --muted: #5f6c7b;
+            --border: #d9e2ec;
+            --shadow: 0 10px 30px rgba(15, 45, 68, 0.10);
+            --radius: 14px;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            margin: 0;
+            font-family:
+                -apple-system,
+                BlinkMacSystemFont,
+                "Segoe UI",
+                Roboto,
+                Helvetica,
+                Arial,
+                sans-serif;
+            line-height: 1.7;
+            color: var(--text);
+            background: var(--background);
+        }
+
+        a {
+            color: var(--secondary);
+        }
+
+        a:hover,
+        a:focus {
+            color: var(--primary-dark);
+        }
+
+        img {
+            max-width: 100%;
+            display: block;
+        }
+
+        .container {
+            width: min(1120px, 92%);
+            margin: 0 auto;
+        }
+
+        /* Header and navigation */
+
+        .site-header {
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            background: rgba(255, 255, 255, 0.97);
+            border-bottom: 1px solid var(--border);
+            backdrop-filter: blur(8px);
+        }
+
+        .nav-container {
+            min-height: 72px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 24px;
+        }
+
+        .site-name {
+            color: var(--primary);
+            font-size: 1.15rem;
+            font-weight: 750;
+            text-decoration: none;
+            letter-spacing: 0.01em;
+        }
+
+        .site-nav {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: flex-end;
+            gap: 8px;
+        }
+
+        .site-nav a {
+            padding: 8px 11px;
+            color: var(--text);
+            font-size: 0.94rem;
+            font-weight: 600;
+            text-decoration: none;
+            border-radius: 7px;
+        }
+
+        .site-nav a:hover,
+        .site-nav a:focus {
+            color: var(--primary);
+            background: var(--light-accent);
+        }
+
+        /* Hero section */
+
+        .hero {
+            padding: 92px 0;
+            color: #ffffff;
+            background:
+                linear-gradient(
+                    135deg,
+                    rgba(15, 45, 68, 0.98),
+                    rgba(32, 99, 155, 0.95)
+                );
+        }
+
+        .hero-content {
+            max-width: 820px;
+        }
+
+        .eyebrow {
+            margin: 0 0 12px;
+            color: #bce9e3;
+            font-size: 0.86rem;
+            font-weight: 750;
+            letter-spacing: 0.13em;
+            text-transform: uppercase;
+        }
+
+        .hero h1 {
+            margin: 0 0 18px;
+            font-size: clamp(2.4rem, 6vw, 4.6rem);
+            line-height: 1.08;
+            letter-spacing: -0.035em;
+        }
+
+        .hero-subtitle {
+            max-width: 750px;
+            margin: 0 0 16px;
+            color: #edf5fa;
+            font-size: clamp(1.08rem, 2vw, 1.3rem);
+        }
+
+        .hero-description {
+            max-width: 760px;
+            margin: 0;
+            color: #d8e7f1;
+            font-size: 1rem;
+        }
+
+        .hero-actions {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            margin-top: 30px;
+        }
+
+        .button {
+            display: inline-block;
+            padding: 12px 19px;
+            border: 2px solid transparent;
+            border-radius: 8px;
+            font-weight: 700;
+            text-decoration: none;
+            transition:
+                transform 0.2s ease,
+                background 0.2s ease,
+                border-color 0.2s ease;
+        }
+
+        .button:hover,
+        .button:focus {
+            transform: translateY(-2px);
+        }
+
+        .button-primary {
+            color: var(--primary-dark);
+            background: #ffffff;
+        }
+
+        .button-primary:hover,
+        .button-primary:focus {
+            color: var(--primary-dark);
+            background: #eaf7f5;
+        }
+
+        .button-secondary {
+            color: #ffffff;
+            border-color: rgba(255, 255, 255, 0.65);
+            background: transparent;
+        }
+
+        .button-secondary:hover,
+        .button-secondary:focus {
+            color: #ffffff;
+            border-color: #ffffff;
+            background: rgba(255, 255, 255, 0.10);
+        }
+
+        /* General sections */
+
+        main section {
+            padding: 76px 0;
+        }
+
+        .section-heading {
+            max-width: 780px;
+            margin-bottom: 35px;
+        }
+
+        .section-heading h2 {
+            margin: 0 0 10px;
+            color: var(--primary-dark);
+            font-size: clamp(1.8rem, 4vw, 2.6rem);
+            line-height: 1.2;
+        }
+
+        .section-heading p {
+            margin: 0;
+            color: var(--muted);
+            font-size: 1.03rem;
+        }
+
+        /* About section */
+
+        .about {
+            background: var(--surface);
+        }
+
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1.4fr 0.8fr;
+            gap: 34px;
+            align-items: start;
+        }
+
+        .about-copy,
+        .skills-panel {
+            padding: 30px;
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            background: var(--surface);
+            box-shadow: var(--shadow);
+        }
+
+        .about-copy p:first-child {
+            margin-top: 0;
+        }
+
+        .about-copy p:last-child {
+            margin-bottom: 0;
+        }
+
+        .skills-panel h3 {
+            margin-top: 0;
+            color: var(--primary);
+        }
+
+        .skills-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 9px;
+            padding: 0;
+            margin: 18px 0 0;
+            list-style: none;
+        }
+
+        .skills-list li {
+            padding: 7px 11px;
+            color: var(--primary-dark);
+            font-size: 0.9rem;
+            font-weight: 650;
+            border: 1px solid #b8ddd8;
+            border-radius: 999px;
+            background: var(--light-accent);
+        }
+
+        /* Artifact cards */
+
+        .artifacts {
+            background: var(--background);
+        }
+
+        .artifact-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+        }
+
+        .artifact-card {
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+            min-height: 100%;
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            background: var(--surface);
+            box-shadow: var(--shadow);
+            transition:
+                transform 0.2s ease,
+                box-shadow 0.2s ease;
+        }
+
+        .artifact-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 16px 36px rgba(15, 45, 68, 0.15);
+        }
+
+        .card-top {
+            min-height: 125px;
+            padding: 25px;
+            color: #ffffff;
+            background:
+                linear-gradient(
+                    135deg,
+                    var(--primary),
+                    var(--secondary)
+                );
+        }
+
+        .card-number {
+            margin: 0 0 7px;
+            color: #cdece8;
+            font-size: 0.82rem;
+            font-weight: 750;
+            letter-spacing: 0.11em;
+            text-transform: uppercase;
+        }
+
+        .card-top h3 {
+            margin: 0;
+            font-size: 1.35rem;
+            line-height: 1.3;
+        }
+
+        .card-body {
+            display: flex;
+            flex: 1;
+            flex-direction: column;
+            padding: 25px;
+        }
+
+        .card-body p {
+            margin-top: 0;
+            color: var(--muted);
+        }
+
+        .technology-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 7px;
+            padding: 0;
+            margin: 0 0 22px;
+            list-style: none;
+        }
+
+        .technology-list li {
+            padding: 5px 9px;
+            color: var(--primary);
+            font-size: 0.82rem;
+            font-weight: 650;
+            border-radius: 6px;
+            background: #edf4f9;
+        }
+
+        .card-link {
+            margin-top: auto;
+            padding-top: 16px;
+            color: var(--secondary);
+            font-weight: 750;
+            text-decoration: none;
+            border-top: 1px solid var(--border);
+        }
+
+        .card-link:hover,
+        .card-link:focus {
+            color: var(--primary-dark);
+        }
+
+        /* Project overview */
+
+        .project-overview {
+            background: var(--surface);
+        }
+
+        .overview-panel {
+            padding: 34px;
+            color: #ffffff;
+            border-radius: var(--radius);
+            background:
+                linear-gradient(
+                    135deg,
+                    var(--primary-dark),
+                    var(--primary)
+                );
+            box-shadow: var(--shadow);
+        }
+
+        .overview-panel h2 {
+            margin-top: 0;
+            color: #ffffff;
+        }
+
+        .overview-panel p {
+            max-width: 900px;
+            color: #e2edf4;
+        }
+
+        .overview-panel p:last-of-type {
+            margin-bottom: 0;
+        }
+
+        .overview-actions {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            margin-top: 25px;
+        }
+
+        /* Outcomes */
+
+        .outcomes {
+            background: var(--background);
+        }
+
+        .outcome-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 18px;
+        }
+
+        .outcome-item {
+            padding: 24px;
+            border-left: 5px solid var(--accent);
+            border-radius: 8px;
+            background: var(--surface);
+            box-shadow: 0 5px 18px rgba(15, 45, 68, 0.07);
+        }
+
+        .outcome-item h3 {
+            margin: 0 0 8px;
+            color: var(--primary);
+            font-size: 1.08rem;
+        }
+
+        .outcome-item p {
+            margin: 0;
+            color: var(--muted);
+        }
+
+        /* Footer */
+
+        .site-footer {
+            padding: 38px 0;
+            color: #d8e7f1;
+            background: var(--primary-dark);
+        }
+
+        .footer-content {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 24px;
+        }
+
+        .footer-content p {
+            margin: 0;
+        }
+
+        .footer-links {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 16px;
+        }
+
+        .footer-links a {
+            color: #ffffff;
+            font-weight: 650;
+            text-decoration: none;
+        }
+
+        .footer-links a:hover,
+        .footer-links a:focus {
+            text-decoration: underline;
+        }
+
+        /* Responsive design */
+
+        @media (max-width: 900px) {
+            .artifact-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .about-grid,
+            .outcome-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 760px) {
+            .site-header {
+                position: static;
+            }
+
+            .nav-container {
+                padding: 16px 0;
+                align-items: flex-start;
+                flex-direction: column;
+            }
+
+            .site-nav {
+                justify-content: flex-start;
+            }
+
+            .hero {
+                padding: 72px 0;
+            }
+
+            main section {
+                padding: 60px 0;
+            }
+
+            .footer-content {
+                align-items: flex-start;
+                flex-direction: column;
+            }
+        }
+
+        @media (max-width: 520px) {
+            .site-nav {
+                display: grid;
+                grid-template-columns: repeat(2, 1fr);
+                width: 100%;
+            }
+
+            .site-nav a {
+                text-align: center;
+                background: #f2f6f9;
+            }
+
+            .hero-actions,
+            .overview-actions {
+                align-items: stretch;
+                flex-direction: column;
+            }
+
+            .button {
+                text-align: center;
+            }
+
+            .about-copy,
+            .skills-panel,
+            .overview-panel {
+                padding: 23px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header class="site-header">
+        <div class="container nav-container">
+            <a class="site-name" href="index.html">
+                Monique Henry
+            </a>
+
+            <nav
+                class="site-nav"
+                aria-label="Main navigation"
+            >
+                <a href="#about">About</a>
+                <a href="#artifacts">Artifacts</a>
+                <a href="#outcomes">Course Outcomes</a>
+
+                <a
+                    href="https://github.com/MoniqueHenry7"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                >
+                    GitHub
+                </a>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section class="hero">
+            <div class="container hero-content">
+                <p class="eyebrow">
+                    Computer Science ePortfolio
+                </p>
+
+                <h1>
+                    Monique Henry
+                </h1>
+
+                <p class="hero-subtitle">
+                    Software engineering, algorithm design, and database
+                    development demonstrated through a complete rescue-match
+                    recommendation system.
+                </p>
+
+                <p class="hero-description">
+                    This ePortfolio presents my growth throughout the Bachelor
+                    of Science in Computer Science program and highlights the
+                    technical skills, design decisions, testing practices, and
+                    professional development demonstrated through my CS 499
+                    capstone enhancements.
+                </p>
+
+                <div class="hero-actions">
+                    <a
+                        class="button button-primary"
+                        href="#artifacts"
+                    >
+                        Explore My Artifacts
+                    </a>
+
+                    <a
+                        class="button button-secondary"
+                        href="https://github.com/MoniqueHenry7"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                    >
+                        View My GitHub
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <section
+            id="about"
+            class="about"
+        >
+            <div class="container">
+                <div class="section-heading">
+                    <h2>About This ePortfolio</h2>
+
+                    <p>
+                        A professional collection of enhanced computer science
+                        work demonstrating my development as a software
+                        engineering professional.
+                    </p>
+                </div>
+
+                <div class="about-grid">
+                    <div class="about-copy">
+                        <p>
+                            I am completing a Bachelor of Science in Computer
+                            Science with a concentration in Software Engineering.
+                            My career interests include software engineering,
+                            mobile application development, artificial
+                            intelligence, and the creation of secure,
+                            user-focused computing solutions.
+                        </p>
+
+                        <p>
+                            The central artifact in this portfolio began as the
+                            Grazioso Salvare animal shelter dashboard from
+                            CS 340: Client/Server Development. The original
+                            application connected Python, Dash, Pandas, and
+                            MongoDB to help users identify dogs that might be
+                            suitable for rescue training.
+                        </p>
+
+                        <p>
+                            During CS 499, I transformed the original dashboard
+                            into a modular Rescue Match Recommendation System.
+                            The three enhancements demonstrate software
+                            architecture, algorithmic problem-solving, database
+                            engineering, testing, security, documentation, and
+                            technical communication.
+                        </p>
+                    </div>
+
+                    <aside class="skills-panel">
+                        <h3>Technical Skills</h3>
+
+                        <ul class="skills-list">
+                            <li>Python</li>
+                            <li>Dash</li>
+                            <li>Pandas</li>
+                            <li>MongoDB</li>
+                            <li>PyMongo</li>
+                            <li>Plotly</li>
+                            <li>Git</li>
+                            <li>GitHub</li>
+                            <li>Unit Testing</li>
+                            <li>Data Structures</li>
+                            <li>Secure Development</li>
+                            <li>Software Architecture</li>
+                        </ul>
+                    </aside>
+                </div>
+            </div>
+        </section>
+
+        <section
+            id="artifacts"
+            class="artifacts"
+        >
+            <div class="container">
+                <div class="section-heading">
+                    <h2>Artifact Enhancements</h2>
+
+                    <p>
+                        Each enhancement presents the artifact’s origin,
+                        completed technical improvements, testing evidence,
+                        course-outcome alignment, and a reflection on the
+                        development process.
+                    </p>
+                </div>
+
+                <div class="artifact-grid">
+                    <article class="artifact-card">
+                        <div class="card-top">
+                            <p class="card-number">
+                                Enhancement One
+                            </p>
+
+                            <h3>
+                                Software Design and Engineering
+                            </h3>
+                        </div>
+
+                        <div class="card-body">
+                            <p>
+                                The original tightly coupled dashboard was
+                                redesigned as a modular Rescue Match
+                                Recommendation System. The enhancement separates
+                                configuration, data access, rescue rules,
+                                service logic, interface layout, callbacks, and
+                                application startup into focused components.
+                            </p>
+
+                            <ul class="technology-list">
+                                <li>Modular Design</li>
+                                <li>Dash</li>
+                                <li>Python</li>
+                                <li>UI/UX</li>
+                                <li>Testing</li>
+                            </ul>
+
+                            <a
+                                class="card-link"
+                                href="software-design.html"
+                            >
+                                View Artifact and Reflection →
+                            </a>
+                        </div>
+                    </article>
+
+                    <article class="artifact-card">
+                        <div class="card-top">
+                            <p class="card-number">
+                                Enhancement Two
+                            </p>
+
+                            <h3>
+                                Algorithms and Data Structures
+                            </h3>
+                        </div>
+
+                        <div class="card-body">
+                            <p>
+                                The recommendation engine uses dictionaries,
+                                sets, binary search, weighted scoring, caching,
+                                and a bounded min-heap to efficiently identify
+                                and rank the strongest rescue candidates.
+                            </p>
+
+                            <ul class="technology-list">
+                                <li>Dictionaries</li>
+                                <li>Sets</li>
+                                <li>Binary Search</li>
+                                <li>Min-Heap</li>
+                                <li>Caching</li>
+                            </ul>
+
+                            <a
+                                class="card-link"
+                                href="algorithms.html"
+                            >
+                                View Artifact and Reflection →
+                            </a>
+                        </div>
+                    </article>
+
+                    <article class="artifact-card">
+                        <div class="card-top">
+                            <p class="card-number">
+                                Enhancement Three
+                            </p>
+
+                            <h3>
+                                Databases
+                            </h3>
+                        </div>
+
+                        <div class="card-body">
+                            <p>
+                                The MongoDB data layer was redesigned with
+                                schema validation, controlled migration,
+                                database-side filtering, pagination,
+                                aggregation pipelines, optimized indexes,
+                                secure CRUD operations, and audit logging.
+                            </p>
+
+                            <ul class="technology-list">
+                                <li>MongoDB</li>
+                                <li>Schema Validation</li>
+                                <li>Indexes</li>
+                                <li>Secure CRUD</li>
+                                <li>Audit Logging</li>
+                            </ul>
+
+                            <a
+                                class="card-link"
+                                href="databases.html"
+                            >
+                                View Artifact and Reflection →
+                            </a>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <section class="project-overview">
+            <div class="container">
+                <div class="overview-panel">
+                    <h2>
+                        Grazioso Salvare Rescue Match Recommendation System
+                    </h2>
+
+                    <p>
+                        The completed capstone artifact is a decision-support
+                        dashboard that helps users identify animals that may be
+                        suitable for water rescue, mountain or wilderness
+                        rescue, and disaster or individual tracking roles.
+                    </p>
+
+                    <p>
+                        The enhanced system presents ranked candidates,
+                        suitability scores, match explanations, interactive
+                        records, visualizations, and map information while
+                        relying on modular software architecture, efficient
+                        algorithmic techniques, and a secure MongoDB data layer.
+                    </p>
+
+                    <div class="overview-actions">
+                        <a
+                            class="button button-primary"
+                            href="software-design.html"
+                        >
+                            Begin With Enhancement One
+                        </a>
+
+                        <a
+                            class="button button-secondary"
+                            href="https://github.com/MoniqueHenry7"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                        >
+                            Browse Source Code
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section
+            id="outcomes"
+            class="outcomes"
+        >
+            <div class="container">
+                <div class="section-heading">
+                    <h2>Computer Science Course Outcomes</h2>
+
+                    <p>
+                        The enhanced artifacts collectively demonstrate the
+                        five major outcomes of the Computer Science program.
+                    </p>
+                </div>
+
+                <div class="outcome-grid">
+                    <article class="outcome-item">
+                        <h3>
+                            Collaborative Environments
+                        </h3>
+
+                        <p>
+                            Use collaborative tools, documentation, version
+                            control, and professional development practices to
+                            support computing projects.
+                        </p>
+                    </article>
+
+                    <article class="outcome-item">
+                        <h3>
+                            Professional Communication
+                        </h3>
+
+                        <p>
+                            Communicate technical concepts clearly through
+                            source-code documentation, narratives,
+                            visualizations, testing evidence, and the
+                            ePortfolio.
+                        </p>
+                    </article>
+
+                    <article class="outcome-item">
+                        <h3>
+                            Algorithmic Problem-Solving
+                        </h3>
+
+                        <p>
+                            Design and evaluate computing solutions using
+                            appropriate algorithms and data structures while
+                            considering performance and design trade-offs.
+                        </p>
+                    </article>
+
+                    <article class="outcome-item">
+                        <h3>
+                            Innovative Computing Solutions
+                        </h3>
+
+                        <p>
+                            Apply well-founded computing techniques to transform
+                            a basic filtering dashboard into a useful,
+                            explainable recommendation system.
+                        </p>
+                    </article>
+
+                    <article class="outcome-item">
+                        <h3>
+                            Security Mindset
+                        </h3>
+
+                        <p>
+                            Protect data and system resources through
+                            environment-based configuration, validation,
+                            approved fields, secure CRUD operations, collection
+                            safeguards, and audit logging.
+                        </p>
+                    </article>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <div class="container footer-content">
+            <p>
+                © 2026 Monique Henry. Computer Science ePortfolio.
+            </p>
+
+            <div class="footer-links">
+                <a href="index.html">Home</a>
+
+                <a href="software-design.html">
+                    Software Design
+                </a>
+
+                <a href="algorithms.html">
+                    Algorithms
+                </a>
+
+                <a href="databases.html">
+                    Databases
+                </a>
+
+                <a
+                    href="https://github.com/MoniqueHenry7"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                >
+                    GitHub
+                </a>
+            </div>
+        </div>
+    </footer>
+</body>
 </html>
