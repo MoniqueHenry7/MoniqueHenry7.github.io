@@ -324,6 +324,26 @@
             color: var(--muted);
         }
 
+        .evidence-figure {
+            margin: 0;
+        }
+
+        .evidence-image {
+            display: block;
+            width: 100%;
+            height: auto;
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            box-shadow: var(--shadow);
+        }
+
+        .evidence-figure figcaption {
+            margin-top: 13px;
+            color: var(--muted);
+            font-size: 0.94rem;
+            text-align: center;
+        }
+
         /* Testing */
 
         .testing-summary {
@@ -885,18 +905,22 @@
             <section class="content-section">
                 <h2>Enhancement Evidence</h2>
 
-                <div class="evidence-placeholder">
-                    <strong>
-                        Enhanced Dashboard Screenshot
-                    </strong>
+                <figure class="evidence-figure">
+                    <img
+                        class="evidence-image"
+                        src="assets/images/software-design-dashboard1.jpeg"
+                        src="assets/images/software-design-dahsboard2.jpeg"
+                        alt="Enhanced Grazioso Salvare Rescue Match Recommendation Dashboard showing ranked animal candidates, recommendation information, chart, and interactive map"
+                    >
 
-                    <p>
-                        A screenshot of the completed Rescue Match
-                        Recommendation Dashboard will be added here during the
-                        next ePortfolio step.
-                    </p>
-                </div>
-
+                    <figcaption>
+                        The enhanced Rescue Match Recommendation Dashboard
+                        presents filtered records, ranked candidates, suitability
+                        information, visualizations, and location data through a 
+                        modular user interface.
+                    </figcaption>
+                </figure>
+                    
                 <ul class="technology-list">
                     <li>Python</li>
                     <li>Dash</li>
@@ -1025,15 +1049,29 @@
                 <h2>Artifact Files</h2>
 
                 <p>
-                    The original source files, completed Enhancement One
-                    source code, supporting narrative, and dashboard
-                    screenshots will be added to the ePortfolio repository in
-                    the next step.
+                    The downloadable artifact contains the completed Software
+                    Design and Engineering enhancement, including the modular
+                    application source code, configuration example, testing
+                    files, supporting documentation, and requirements.
+                </p>
+
+                <p>
+                    Sensitive credentials, virtual-environment files, cache
+                    dictionaries, and temporary development files are excluded
+                    from the published package.
                 </p>
 
                 <div class="button-row">
                     <a
                         class="button"
+                        href="artifacts/software-design/CS499-Enhancement-One-Software-Design.zip"
+                        download
+                    >
+                        Download Enhanced Artifact
+                    </a>
+
+                    <a
+                        class="button button-outline"
                         href="https://github.com/MoniqueHenry7"
                         target="_blank"
                         rel="noopener noreferrer"
