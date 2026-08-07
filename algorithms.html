@@ -11,32 +11,928 @@
     <title>
         Algorithms and Data Structures | Monique Henry
     </title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            margin: 0;
+            font-family: Arial, Helvetica, sans-serif;
+            line-height: 1.7;
+            color: #1f2933;
+            background: #f4f7fa;
+        }
+
+        .container {
+            width: min(1050px, 92%);
+            margin: 0 auto;
+        }
+
+        /* Navigation */
+
+        header {
+            background: #ffffff;
+            border-bottom: 1px solid #d9e2ec;
+        }
+
+        nav {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            padding: 20px 0;
+        }
+
+        nav a {
+            color: #173f5f;
+            font-weight: bold;
+            text-decoration: none;
+        }
+
+        nav a:hover {
+            text-decoration: underline;
+        }
+
+        /* Hero */
+
+        .hero {
+            padding: 70px 0;
+            color: white;
+            background: linear-gradient(
+                135deg,
+                #0f2d44,
+                #20639b
+            );
+        }
+
+        .hero .label {
+            margin: 0 0 8px;
+            color: #c9ece7;
+            font-weight: bold;
+            letter-spacing: 0.06em;
+        }
+
+        .hero h1 {
+            margin: 0 0 12px;
+            font-size: 2.7rem;
+        }
+
+        .hero p {
+            max-width: 800px;
+            margin-bottom: 0;
+            color: #e3eef5;
+            font-size: 1.1rem;
+        }
+
+        /* Main sections */
+
+        section {
+            padding: 55px 0;
+        }
+
+        h2 {
+            color: #173f5f;
+        }
+
+        h3 {
+            margin-top: 30px;
+            color: #20639b;
+        }
+
+        .content-card {
+            padding: 32px;
+            margin-bottom: 28px;
+            background: white;
+            border: 1px solid #d9e2ec;
+            border-radius: 12px;
+            box-shadow: 0 8px 24px rgba(15, 45, 68, 0.08);
+        }
+
+        .artifact-image {
+            width: 100%;
+            max-width: 900px;
+            margin: 25px auto;
+            border-radius: 10px;
+            border: 1px solid #d9e2ec;
+        }
+
+        .image-caption {
+            max-width: 900px;
+            margin: -12px auto 25px;
+            color: #5f6c7b;
+            font-size: 0.92rem;
+            text-align: center;
+        }
+
+        .highlight {
+            padding: 22px;
+            margin: 25px 0;
+            border-left: 5px solid #3caea3;
+            background: #e8f6f4;
+            border-radius: 7px;
+        }
+
+        /* Algorithm details */
+
+        .algorithm-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 18px;
+            margin-top: 25px;
+        }
+
+        .algorithm-item {
+            padding: 22px;
+            border: 1px solid #d9e2ec;
+            border-radius: 9px;
+            background: #f8fbfd;
+        }
+
+        .algorithm-item h3 {
+            margin-top: 0;
+            margin-bottom: 8px;
+        }
+
+        .algorithm-item p {
+            margin-bottom: 0;
+        }
+
+        /* Scoring table */
+
+        .table-wrapper {
+            overflow-x: auto;
+            margin: 25px 0;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            background: white;
+        }
+
+        th,
+        td {
+            padding: 14px;
+            border: 1px solid #d9e2ec;
+            text-align: left;
+        }
+
+        th {
+            color: white;
+            background: #173f5f;
+        }
+
+        tr:nth-child(even) {
+            background: #f4f7fa;
+        }
+
+        /* Code / complexity */
+
+        .complexity {
+            padding: 20px;
+            overflow-x: auto;
+            color: #e7edf2;
+            background: #17212b;
+            border-radius: 8px;
+            font-family: Consolas, Monaco, monospace;
+        }
+
+        /* Buttons */
+
+        .button-group {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            margin-top: 25px;
+        }
+
+        .button {
+            display: inline-block;
+            padding: 12px 18px;
+            color: white;
+            font-weight: bold;
+            text-decoration: none;
+            border-radius: 7px;
+            background: #20639b;
+        }
+
+        .button:hover {
+            background: #173f5f;
+        }
+
+        /* Footer */
+
+        footer {
+            padding: 35px 0;
+            color: #d8e7f1;
+            text-align: center;
+            background: #0f2d44;
+        }
+
+        footer a {
+            color: white;
+        }
+
+        @media (max-width: 750px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .content-card {
+                padding: 22px;
+            }
+
+            .algorithm-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
 </head>
 
+
 <body>
+
+    <!-- Navigation -->
+
     <header>
-        <nav>
-            <a href="index.html">Home</a>
-        </nav>
+        <div class="container">
+            <nav>
+                <a href="index.html">
+                    Home
+                </a>
+
+                <a href="software-design.html">
+                    Software Design
+                </a>
+
+                <a href="algorithms.html">
+                    Algorithms
+                </a>
+
+                <a href="databases.html">
+                    Databases
+                </a>
+
+                <a
+                    href="https://github.com/MoniqueHenry7"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                >
+                    GitHub
+                </a>
+            </nav>
+        </div>
     </header>
 
+
     <main>
-        <h1>Algorithms and Data Structures</h1>
 
-        <p>
-            This page presents Enhancement Two of my Grazioso Salvare
-            Rescue Match Recommendation System.
-        </p>
+        <!-- Hero -->
 
-        <p>
-            The complete artifact overview, algorithmic improvements,
-            testing evidence, reflection narrative, screenshots, and
-            source-code links will be presented here.
-        </p>
+        <section class="hero">
+            <div class="container">
 
-        <a href="index.html">
-            Return to the ePortfolio Homepage
-        </a>
+                <p class="label">
+                    CS 499 Capstone | Enhancement Two
+                </p>
+
+                <h1>
+                    Algorithms and Data Structures
+                </h1>
+
+                <p>
+                    Grazioso Salvare Rescue Match Recommendation System
+                </p>
+
+            </div>
+        </section>
+
+
+        <!-- Main Content -->
+
+        <section>
+            <div class="container">
+
+
+                <!-- Artifact Overview -->
+
+                <article class="content-card">
+
+                    <h2>
+                        Artifact Overview
+                    </h2>
+
+                    <p>
+                        The artifact selected for the algorithms and data
+                        structures enhancement is the Grazioso Salvare animal
+                        rescue dashboard originally developed in CS 340:
+                        Client/Server Development.
+                    </p>
+
+                    <p>
+                        The application was created using Python, Dash,
+                        Pandas, MongoDB, PyMongo, Plotly, and Dash Leaflet.
+                        Its original purpose was to allow users to interact
+                        with animal shelter records and identify animals that
+                        could potentially satisfy specific rescue-training
+                        requirements.
+                    </p>
+
+                    <p>
+                        The original dashboard allowed users to filter animals
+                        according to Water Rescue, Mountain or Wilderness
+                        Rescue, and Disaster or Individual Tracking profiles.
+                        Although this approach successfully identified matching
+                        records, the selection process relied primarily on
+                        predefined filters and treated animals as either
+                        matching or not matching a rescue profile.
+                    </p>
+
+                </article>
+
+
+                <!-- Enhanced Artifact -->
+
+                <article class="content-card">
+
+                    <h2>
+                        Enhanced Artifact
+                    </h2>
+
+                    <p>
+                        For Enhancement Two, I expanded the dashboard into a
+                        more advanced Rescue Match Recommendation System.
+                        Instead of simply returning matching records, the
+                        application now uses algorithms and data structures to
+                        efficiently identify, evaluate, score, and rank the
+                        strongest rescue candidates.
+                    </p>
+
+                    <!--
+                    CHANGE THIS FILENAME if your uploaded image uses
+                    a different name.
+                    -->
+
+                    <img
+                        class="artifact-image"
+                        src="assets/images/algorithm-ranking-results.jpeg"
+                        alt="Rescue Match Recommendation System showing ranked animal candidates"
+                    >
+
+                    <p class="image-caption">
+                        Enhanced recommendation results showing ranked rescue
+                        candidates and suitability scores.
+                    </p>
+
+                    <div class="highlight">
+
+                        <strong>Key Enhancement:</strong>
+
+                        The original binary filtering process was expanded
+                        into an algorithmic recommendation system using
+                        dictionary indexes, sets, binary search, weighted
+                        scoring, a bounded min-heap, and caching.
+
+                    </div>
+
+                </article>
+
+
+                <!-- Algorithm Improvements -->
+
+                <article class="content-card">
+
+                    <h2>
+                        Algorithm and Data Structure Improvements
+                    </h2>
+
+                    <div class="algorithm-grid">
+
+                        <div class="algorithm-item">
+
+                            <h3>
+                                Dictionary-Based Indexes
+                            </h3>
+
+                            <p>
+                                Dictionary-based indexes organize records by
+                                frequently accessed characteristics such as
+                                normalized breed, sex, and outcome. This
+                                provides efficient key-based access to groups
+                                of potential rescue candidates.
+                            </p>
+
+                        </div>
+
+
+                        <div class="algorithm-item">
+
+                            <h3>
+                                Set Intersections
+                            </h3>
+
+                            <p>
+                                Sets allow candidate groups to be efficiently
+                                combined. Animals that meet breed requirements
+                                can be intersected with groups meeting age,
+                                sex, outcome, or other requirements without
+                                repeatedly scanning the complete dataset.
+                            </p>
+
+                        </div>
+
+
+                        <div class="algorithm-item">
+
+                            <h3>
+                                Binary Search
+                            </h3>
+
+                            <p>
+                                Sorted age information allows binary-search
+                                techniques to identify the boundaries of valid
+                                age ranges. This provides a more efficient
+                                alternative to examining every record
+                                individually for age-based searches.
+                            </p>
+
+                        </div>
+
+
+                        <div class="algorithm-item">
+
+                            <h3>
+                                Bounded Min-Heap
+                            </h3>
+
+                            <p>
+                                A bounded min-heap priority queue maintains
+                                only the strongest top candidates as records
+                                are evaluated. This is useful because the
+                                dashboard normally needs only a small number
+                                of top recommendations.
+                            </p>
+
+                        </div>
+
+
+                        <div class="algorithm-item">
+
+                            <h3>
+                                Weighted Scoring
+                            </h3>
+
+                            <p>
+                                Candidates receive a suitability score based
+                                on how closely their characteristics match the
+                                selected rescue profile. This allows the
+                                application to distinguish between acceptable
+                                candidates and stronger candidates.
+                            </p>
+
+                        </div>
+
+
+                        <div class="algorithm-item">
+
+                            <h3>
+                                Caching
+                            </h3>
+
+                            <p>
+                                Repeated recommendation requests can reuse
+                                previously calculated results instead of
+                                rebuilding the same candidate selection and
+                                scoring process each time. Bounded caching
+                                prevents uncontrolled memory growth.
+                            </p>
+
+                        </div>
+
+                    </div>
+
+                </article>
+
+
+                <!-- Weighted Scoring -->
+
+                <article class="content-card">
+
+                    <h2>
+                        Weighted Recommendation Model
+                    </h2>
+
+                    <p>
+                        The recommendation engine evaluates candidates using
+                        a total possible score of 100 points. Each criterion
+                        contributes a different amount based on its importance
+                        to the rescue-training profile.
+                    </p>
+
+                    <div class="table-wrapper">
+
+                        <table>
+
+                            <thead>
+                                <tr>
+                                    <th>
+                                        Criterion
+                                    </th>
+
+                                    <th>
+                                        Maximum Points
+                                    </th>
+
+                                    <th>
+                                        Purpose
+                                    </th>
+                                </tr>
+                            </thead>
+
+
+                            <tbody>
+
+                                <tr>
+                                    <td>
+                                        Breed Match
+                                    </td>
+
+                                    <td>
+                                        40
+                                    </td>
+
+                                    <td>
+                                        Gives the greatest weight to
+                                        breed characteristics associated
+                                        with the selected rescue role.
+                                    </td>
+                                </tr>
+
+
+                                <tr>
+                                    <td>
+                                        Age Match
+                                    </td>
+
+                                    <td>
+                                        25
+                                    </td>
+
+                                    <td>
+                                        Evaluates whether the candidate
+                                        falls within the preferred
+                                        training-age range.
+                                    </td>
+                                </tr>
+
+
+                                <tr>
+                                    <td>
+                                        Sex Match
+                                    </td>
+
+                                    <td>
+                                        20
+                                    </td>
+
+                                    <td>
+                                        Evaluates alignment with the
+                                        preferred sex criteria for the
+                                        rescue profile.
+                                    </td>
+                                </tr>
+
+
+                                <tr>
+                                    <td>
+                                        Outcome Match
+                                    </td>
+
+                                    <td>
+                                        15
+                                    </td>
+
+                                    <td>
+                                        Considers the candidate's
+                                        recorded shelter outcome.
+                                    </td>
+                                </tr>
+
+                            </tbody>
+
+                        </table>
+
+                    </div>
+
+                    <p>
+                        The recommendation engine also supplies explanatory
+                        match reasons so that users can understand why an
+                        animal received its score rather than treating the
+                        recommendation process as a hidden calculation.
+                    </p>
+
+                </article>
+
+
+                <!-- Efficiency -->
+
+                <article class="content-card">
+
+                    <h2>
+                        Algorithmic Efficiency
+                    </h2>
+
+                    <p>
+                        The enhancement allowed me to evaluate both the
+                        theoretical and practical performance of the
+                        recommendation process.
+                    </p>
+
+                    <h3>
+                        Dictionary Lookup
+                    </h3>
+
+                    <div class="complexity">
+                        Average lookup complexity: O(1)
+                    </div>
+
+                    <p>
+                        Dictionary indexes provide expected constant-time
+                        access to candidate groups associated with normalized
+                        breed, sex, and outcome values.
+                    </p>
+
+
+                    <h3>
+                        Binary Search
+                    </h3>
+
+                    <div class="complexity">
+                        Range-boundary search: O(log n)
+                    </div>
+
+                    <p>
+                        Binary search locates the boundaries of qualifying
+                        age ranges within sorted age information.
+                    </p>
+
+
+                    <h3>
+                        Top-k Candidate Selection
+                    </h3>
+
+                    <div class="complexity">
+                        Complete sorting: O(m log m)
+
+                        <br><br>
+
+                        Bounded min-heap: O(m log k)
+                    </div>
+
+                    <p>
+                        In these expressions, <strong>m</strong> represents
+                        the number of evaluated candidates and
+                        <strong>k</strong> represents the number of top
+                        recommendations requested.
+                    </p>
+
+                    <p>
+                        Because the dashboard normally displays only a small
+                        set of top recommendations, maintaining a bounded heap
+                        avoids unnecessarily sorting every candidate when only
+                        the strongest results are required.
+                    </p>
+
+                </article>
+
+
+                <!-- Testing -->
+
+                <article class="content-card">
+
+                    <h2>
+                        Testing and Evaluation
+                    </h2>
+
+                    <p>
+                        Automated testing was used to evaluate both the
+                        recommendation engine and its integration with the
+                        dashboard.
+                    </p>
+
+                    <p>
+                        The recommendation-engine test suite included tests
+                        for dictionary-index construction, profile
+                        normalization, mixed-breed matching, set operations,
+                        binary-search age boundaries, weighted scoring,
+                        partial age credit, bounded min-heap ranking,
+                        tie handling, result limits, caching, invalid input,
+                        empty results, and protection of source records.
+                    </p>
+
+                    <div class="highlight">
+
+                        <strong>Testing Result:</strong>
+
+                        After correcting the explicit-filter integration
+                        issue, all 82 automated tests in the complete
+                        application suite passed during Enhancement Two.
+
+                    </div>
+
+                    <p>
+                        End-to-end testing also confirmed that recommendation
+                        ranks began at one, scores appeared in descending
+                        order, the strongest table result matched the
+                        top-recommendation card, the visualization updated
+                        with ranked results, and selecting a table record
+                        continued to update the interactive map.
+                    </p>
+
+                </article>
+
+
+                <!-- Artifact Files -->
+
+                <article class="content-card">
+
+                    <h2>
+                        Artifact Files
+                    </h2>
+
+                    <p>
+                        The enhanced artifact demonstrates the implementation
+                        of the algorithms and data structures used by the
+                        Rescue Match Recommendation System.
+                    </p>
+
+                    <div class="button-group">
+
+                        <!--
+                        CHANGE THIS to the exact location and filename
+                        of your Enhancement Two ZIP.
+                        -->
+
+                        <a
+                            class="button"
+                            href="artifacts/CS499-Enhancement-Two-Algorithms.zip"
+                        >
+                            Download Enhanced Artifact
+                        </a>
+
+
+                        <a
+                            class="button"
+                            href="https://github.com/MoniqueHenry7"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                        >
+                            View Source Code
+                        </a>
+
+                    </div>
+
+                </article>
+
+
+                <!-- Reflection -->
+
+                <article class="content-card">
+
+                    <h2>
+                        Reflection Narrative
+                    </h2>
+
+                    <p>
+                        I selected the Grazioso Salvare Rescue Match
+                        Recommendation System for the algorithms and data
+                        structures category because it provides a practical
+                        example of how the organization of data and the
+                        selection of appropriate algorithms can improve a
+                        working software application.
+                    </p>
+
+                    <p>
+                        The original dashboard already contained a realistic
+                        problem involving the evaluation of animal records
+                        according to several criteria. However, the original
+                        rescue-selection process primarily relied on
+                        predefined filters and repeated filtering operations.
+                        Animals were generally treated as either matching or
+                        not matching a rescue category.
+                    </p>
+
+                    <p>
+                        The primary goal of this enhancement was to move
+                        beyond simple filtering and create a recommendation
+                        process capable of identifying the strongest rescue
+                        candidates. I implemented dictionary-based indexes,
+                        sets, sorted age data, binary search, weighted
+                        scoring, a bounded min-heap priority queue, and
+                        caching.
+                    </p>
+
+                    <p>
+                        Dictionary indexes provide efficient access to
+                        frequently requested candidate groups, while sets
+                        support efficient intersection of multiple selection
+                        criteria. Binary search allows qualifying age
+                        boundaries to be located within sorted data without
+                        requiring a complete sequential search.
+                    </p>
+
+                    <p>
+                        Weighted scoring allows the application to evaluate
+                        how closely each candidate matches the selected
+                        rescue profile. A candidate can therefore be ranked
+                        relative to other candidates instead of being treated
+                        as only a yes-or-no match. The bounded min-heap
+                        provides an efficient approach for maintaining the
+                        strongest top candidates when the number of results
+                        requested is much smaller than the number of records
+                        evaluated.
+                    </p>
+
+                    <p>
+                        One of the most important lessons I learned during
+                        this enhancement was that no single data structure is
+                        the best choice for every operation. Dictionaries and
+                        sets improve lookup and intersection operations but
+                        require additional memory. Sorted structures support
+                        efficient binary search but introduce maintenance
+                        considerations when the underlying data changes.
+                        A heap is effective when only the strongest results
+                        are required, while a full sort may still be more
+                        appropriate when every record must be ranked.
+                    </p>
+
+                    <p>
+                        Evaluating these trade-offs strengthened my
+                        understanding of algorithm design. Performance cannot
+                        be evaluated only by selecting the structure with the
+                        lowest theoretical complexity. Readability,
+                        maintainability, memory use, data size, update
+                        frequency, and the actual requirements of the
+                        application must also be considered.
+                    </p>
+
+                    <p>
+                        Automated and end-to-end testing were also important
+                        parts of this enhancement. Testing confirmed that the
+                        algorithmic improvements produced correctly ranked
+                        recommendations without removing the interactive
+                        functionality of the original dashboard.
+                    </p>
+
+                    <p>
+                        This enhancement most directly demonstrates my
+                        ability to design and evaluate computing solutions
+                        using algorithmic principles and computer science
+                        practices. It also demonstrates my ability to apply
+                        well-founded computing techniques to provide
+                        practical value and communicate technical results
+                        through understandable scores, explanations, tables,
+                        charts, and other interface components.
+                    </p>
+
+                    <p>
+                        Overall, the enhancement transformed the artifact from
+                        a basic filtering dashboard into a
+                        recommendation-oriented system capable of organizing
+                        data efficiently, narrowing candidate groups,
+                        evaluating suitability, and prioritizing the strongest
+                        results for the user.
+                    </p>
+
+                </article>
+
+            </div>
+        </section>
+
     </main>
+
+
+    <footer>
+        <div class="container">
+
+            <p>
+                © 2026 Monique Henry |
+                Computer Science ePortfolio
+            </p>
+
+            <p>
+                <a href="index.html">
+                    Return to ePortfolio Homepage
+                </a>
+            </p>
+
+        </div>
+    </footer>
+
 </body>
 </html>
