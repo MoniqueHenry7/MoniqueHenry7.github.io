@@ -627,6 +627,301 @@
                 text-align: center;
             }
         }
+
+        /* =========================================
+           RESPONSIVE / MOBILE DESIGN
+           ========================================= */
+        
+        /* Tablets and smaller laptops */
+        @media (max-width: 900px) {
+        
+            .container {
+                width: min(100% - 40px, 1050px);
+            }
+        
+            .fact-grid,
+            .improvement-grid,
+            .algorithm-grid,
+            .complexity-grid,
+            .outcome-grid {
+                grid-template-columns: 1fr;
+            }
+        
+            .artifact-grid {
+                grid-template-columns: 1fr;
+            }
+        
+            .score-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        
+            .testing-summary {
+                grid-template-columns: 1fr;
+            }
+        
+            .test-number {
+                text-align: left;
+            }
+        
+            .about-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        
+        /* Phones */
+        @media (max-width: 680px) {
+        
+            /* Page */
+        
+            body {
+                font-size: 16px;
+                line-height: 1.65;
+            }
+        
+            .container {
+                width: calc(100% - 30px);
+            }
+        
+        
+            /* Header */
+        
+            .site-header {
+                position: static;
+            }
+        
+            .nav-container {
+                min-height: auto;
+                padding: 14px 0;
+                align-items: flex-start;
+                flex-direction: column;
+                gap: 12px;
+            }
+        
+            .site-name {
+                font-size: 1.1rem;
+            }
+        
+            .site-nav {
+                display: grid;
+                grid-template-columns: repeat(2, 1fr);
+                width: 100%;
+                gap: 8px;
+            }
+        
+            .site-nav a {
+                width: 100%;
+                padding: 10px 8px;
+                text-align: center;
+                background: #f4f7fa;
+                border: 1px solid var(--border);
+            }
+        
+        
+            /* Hero */
+        
+            .page-hero,
+            .hero {
+                padding: 52px 0;
+            }
+        
+            .page-hero h1,
+            .hero h1 {
+                font-size: clamp(2rem, 10vw, 2.7rem);
+                line-height: 1.12;
+            }
+        
+            .hero-description,
+            .hero-subtitle {
+                font-size: 1rem;
+            }
+        
+            .hero-details {
+                gap: 7px;
+            }
+        
+            .hero-details span {
+                font-size: 0.78rem;
+                padding: 6px 9px;
+            }
+        
+        
+            /* Main content */
+        
+            main {
+                padding: 38px 0 55px;
+            }
+        
+            main section {
+                padding-top: 45px;
+                padding-bottom: 45px;
+            }
+        
+            .content-section,
+            .content-card {
+                padding: 22px;
+                margin-bottom: 22px;
+                border-radius: 10px;
+            }
+        
+            .content-section h2,
+            .content-card h2 {
+                font-size: 1.55rem;
+            }
+        
+            .content-section h3,
+            .content-card h3 {
+                font-size: 1.12rem;
+            }
+        
+        
+            /* Cards */
+        
+            .fact-grid,
+            .improvement-grid,
+            .algorithm-grid,
+            .complexity-grid,
+            .artifact-grid,
+            .about-grid,
+            .outcome-grid,
+            .score-grid {
+                grid-template-columns: 1fr;
+            }
+        
+            .fact-card,
+            .improvement-card,
+            .algorithm-item,
+            .complexity-card,
+            .score-card {
+                padding: 18px;
+            }
+        
+        
+            /* Images */
+        
+            .evidence-image,
+            .artifact-image {
+                width: 100%;
+                height: auto;
+                border-radius: 8px;
+            }
+        
+            .evidence-figure figcaption,
+            .image-caption {
+                font-size: 0.85rem;
+            }
+        
+        
+            /* Tables */
+        
+            .table-wrapper {
+                width: 100%;
+                overflow-x: auto;
+                -webkit-overflow-scrolling: touch;
+            }
+        
+            table {
+                min-width: 650px;
+            }
+        
+            th,
+            td {
+                padding: 12px;
+                font-size: 0.9rem;
+            }
+        
+        
+            /* Testing banner */
+        
+            .testing-summary {
+                grid-template-columns: 1fr;
+                padding: 20px;
+            }
+        
+            .test-number {
+                text-align: center;
+            }
+        
+            .test-number strong {
+                font-size: 2.8rem;
+            }
+        
+        
+            /* Buttons */
+        
+            .button-row,
+            .button-group,
+            .hero-actions,
+            .overview-actions {
+                flex-direction: column;
+                width: 100%;
+            }
+        
+            .button-row .button,
+            .button-group .button,
+            .hero-actions .button,
+            .overview-actions .button {
+                width: 100%;
+                text-align: center;
+            }
+        
+        
+            /* Previous / Next navigation */
+        
+            .page-navigation {
+                align-items: stretch;
+                flex-direction: column;
+                gap: 18px;
+                padding: 22px;
+            }
+        
+            .page-navigation a {
+                width: 100%;
+                text-align: center;
+            }
+        
+        
+            /* Footer */
+        
+            .footer-content {
+                align-items: flex-start;
+                flex-direction: column;
+                gap: 12px;
+            }
+        }
+        
+        
+        /* Very small phones */
+        @media (max-width: 420px) {
+        
+            .container {
+                width: calc(100% - 22px);
+            }
+        
+            .site-nav {
+                grid-template-columns: 1fr;
+            }
+        
+            .page-hero,
+            .hero {
+                padding: 42px 0;
+            }
+        
+            .page-hero h1,
+            .hero h1 {
+                font-size: 2rem;
+            }
+        
+            .content-section,
+            .content-card {
+                padding: 18px;
+            }
+        
+            .hero-details span {
+                width: 100%;
+                text-align: center;
+            }
+        }
     </style>
 </head>
 
