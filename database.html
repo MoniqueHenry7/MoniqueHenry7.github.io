@@ -8,35 +8,1822 @@
         content="width=device-width, initial-scale=1.0"
     >
 
+    <meta
+        name="description"
+        content="Database enhancement for Monique Henry's Computer Science ePortfolio."
+    >
+
     <title>
         Databases | Monique Henry
     </title>
+
+    <style>
+        :root {
+            --primary: #173f5f;
+            --primary-dark: #0f2d44;
+            --secondary: #20639b;
+            --accent: #3caea3;
+            --accent-light: #e8f6f4;
+            --background: #f4f7fa;
+            --surface: #ffffff;
+            --text: #1f2933;
+            --muted: #5f6c7b;
+            --border: #d9e2ec;
+            --shadow: 0 10px 30px rgba(15, 45, 68, 0.10);
+            --radius: 14px;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            margin: 0;
+            color: var(--text);
+            background: var(--background);
+            font-family:
+                -apple-system,
+                BlinkMacSystemFont,
+                "Segoe UI",
+                Roboto,
+                Helvetica,
+                Arial,
+                sans-serif;
+            line-height: 1.75;
+        }
+
+        a {
+            color: var(--secondary);
+        }
+
+        a:hover,
+        a:focus {
+            color: var(--primary-dark);
+        }
+
+        code {
+            padding: 2px 6px;
+            color: var(--primary-dark);
+            border-radius: 5px;
+            background: #edf4f9;
+            font-family:
+                Consolas,
+                Monaco,
+                "Courier New",
+                monospace;
+        }
+
+        .container {
+            width: min(1050px, 92%);
+            margin: 0 auto;
+        }
+
+        /* =========================================
+           HEADER
+           ========================================= */
+
+        .site-header {
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            background: rgba(255, 255, 255, 0.97);
+            border-bottom: 1px solid var(--border);
+            backdrop-filter: blur(8px);
+        }
+
+        .nav-container {
+            min-height: 72px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 24px;
+        }
+
+        .site-name {
+            color: var(--primary);
+            font-size: 1.15rem;
+            font-weight: 750;
+            text-decoration: none;
+        }
+
+        .site-nav {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: flex-end;
+            gap: 8px;
+        }
+
+        .site-nav a {
+            padding: 8px 11px;
+            color: var(--text);
+            font-size: 0.94rem;
+            font-weight: 650;
+            text-decoration: none;
+            border-radius: 7px;
+        }
+
+        .site-nav a:hover,
+        .site-nav a:focus {
+            color: var(--primary);
+            background: var(--accent-light);
+        }
+
+        /* =========================================
+           HERO
+           ========================================= */
+
+        .page-hero {
+            padding: 82px 0;
+            color: #ffffff;
+            background:
+                linear-gradient(
+                    135deg,
+                    var(--primary-dark),
+                    var(--secondary)
+                );
+        }
+
+        .eyebrow {
+            margin: 0 0 10px;
+            color: #bce9e3;
+            font-size: 0.84rem;
+            font-weight: 750;
+            letter-spacing: 0.13em;
+            text-transform: uppercase;
+        }
+
+        .page-hero h1 {
+            max-width: 850px;
+            margin: 0 0 18px;
+            font-size: clamp(2.2rem, 5vw, 4rem);
+            line-height: 1.1;
+            letter-spacing: -0.03em;
+        }
+
+        .hero-description {
+            max-width: 790px;
+            margin: 0;
+            color: #e2edf4;
+            font-size: 1.1rem;
+        }
+
+        .hero-details {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 26px;
+        }
+
+        .hero-details span {
+            padding: 7px 11px;
+            color: #ffffff;
+            font-size: 0.88rem;
+            font-weight: 650;
+            border: 1px solid rgba(255, 255, 255, 0.35);
+            border-radius: 999px;
+            background: rgba(255, 255, 255, 0.08);
+        }
+
+        /* =========================================
+           MAIN CONTENT
+           ========================================= */
+
+        main {
+            padding: 64px 0 80px;
+        }
+
+        .content-section {
+            margin-bottom: 32px;
+            padding: 34px;
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            background: var(--surface);
+            box-shadow: var(--shadow);
+        }
+
+        .content-section h2 {
+            margin: 0 0 16px;
+            color: var(--primary-dark);
+            font-size: clamp(1.55rem, 3vw, 2.1rem);
+            line-height: 1.25;
+        }
+
+        .content-section h3 {
+            margin: 28px 0 10px;
+            color: var(--primary);
+            font-size: 1.2rem;
+        }
+
+        .content-section p {
+            margin: 0 0 17px;
+        }
+
+        .content-section p:last-child {
+            margin-bottom: 0;
+        }
+
+        .section-introduction {
+            color: var(--muted);
+            font-size: 1.03rem;
+        }
+
+        /* =========================================
+           OVERVIEW FACTS
+           ========================================= */
+
+        .fact-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 16px;
+            margin-top: 24px;
+        }
+
+        .fact-card {
+            padding: 20px;
+            border-left: 5px solid var(--accent);
+            border-radius: 8px;
+            background: #f7fafc;
+        }
+
+        .fact-card h3 {
+            margin: 0 0 6px;
+            font-size: 1rem;
+        }
+
+        .fact-card p {
+            margin: 0;
+            color: var(--muted);
+        }
+
+        /* =========================================
+           COMPARISON TABLE
+           ========================================= */
+
+        .table-wrapper {
+            width: 100%;
+            margin-top: 22px;
+            overflow-x: auto;
+            -webkit-overflow-scrolling: touch;
+        }
+
+        table {
+            width: 100%;
+            min-width: 700px;
+            border-collapse: collapse;
+        }
+
+        th,
+        td {
+            padding: 16px;
+            text-align: left;
+            vertical-align: top;
+            border: 1px solid var(--border);
+        }
+
+        th {
+            color: #ffffff;
+            background: var(--primary);
+        }
+
+        tbody tr:nth-child(even) {
+            background: #f7fafc;
+        }
+
+        td:first-child {
+            width: 18%;
+            color: var(--primary-dark);
+            font-weight: 700;
+        }
+
+        /* =========================================
+           IMPROVEMENT CARDS
+           ========================================= */
+
+        .improvement-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 18px;
+            margin-top: 24px;
+        }
+
+        .improvement-card {
+            padding: 23px;
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            background: #fbfdfe;
+        }
+
+        .improvement-card h3 {
+            margin: 0 0 8px;
+            color: var(--primary);
+        }
+
+        .improvement-card p {
+            margin: 0;
+            color: var(--muted);
+        }
+
+        /* =========================================
+           DATABASE FLOW
+           ========================================= */
+
+        .database-flow {
+            display: grid;
+            grid-template-columns:
+                1fr auto 1fr auto 1fr;
+            gap: 12px;
+            align-items: center;
+            margin-top: 26px;
+        }
+
+        .flow-card {
+            min-height: 140px;
+            padding: 20px;
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            background: #f7fafc;
+        }
+
+        .flow-card h3 {
+            margin: 0 0 7px;
+            color: var(--primary);
+        }
+
+        .flow-card p {
+            margin: 0;
+            color: var(--muted);
+            font-size: 0.94rem;
+        }
+
+        .flow-arrow {
+            color: var(--secondary);
+            font-size: 1.6rem;
+            font-weight: 750;
+        }
+
+        /* =========================================
+           SECURITY
+           ========================================= */
+
+        .security-panel {
+            margin-top: 24px;
+            padding: 25px;
+            border-left: 5px solid var(--accent);
+            border-radius: 10px;
+            background: var(--accent-light);
+        }
+
+        .security-panel h3 {
+            margin-top: 0;
+        }
+
+        .security-list {
+            margin-bottom: 0;
+        }
+
+        .security-list li {
+            margin-bottom: 9px;
+        }
+
+        /* =========================================
+           EVIDENCE IMAGE
+           ========================================= */
+
+        .evidence-figure {
+            margin: 0;
+        }
+
+        .evidence-image {
+            display: block;
+            width: 100%;
+            height: auto;
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            box-shadow: var(--shadow);
+        }
+
+        .evidence-figure figcaption {
+            margin-top: 13px;
+            color: var(--muted);
+            font-size: 0.94rem;
+            text-align: center;
+        }
+
+        /* =========================================
+           PERFORMANCE
+           ========================================= */
+
+        .performance-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 18px;
+            margin-top: 24px;
+        }
+
+        .performance-card {
+            padding: 25px;
+            border-radius: 11px;
+            background: #f7fafc;
+            border: 1px solid var(--border);
+        }
+
+        .performance-card h3 {
+            margin: 0 0 8px;
+        }
+
+        .performance-card strong {
+            display: block;
+            margin-bottom: 5px;
+            color: var(--secondary);
+            font-size: 1.8rem;
+        }
+
+        .performance-card p {
+            margin: 0;
+            color: var(--muted);
+        }
+
+        /* =========================================
+           TESTING
+           ========================================= */
+
+        .testing-summary {
+            display: grid;
+            grid-template-columns: 180px 1fr;
+            gap: 22px;
+            align-items: center;
+            margin-top: 22px;
+            padding: 24px;
+            color: #ffffff;
+            border-radius: 12px;
+            background:
+                linear-gradient(
+                    135deg,
+                    var(--primary),
+                    var(--secondary)
+                );
+        }
+
+        .test-number {
+            text-align: center;
+        }
+
+        .test-number strong {
+            display: block;
+            font-size: 3.4rem;
+            line-height: 1;
+        }
+
+        .test-number span {
+            color: #d8e7f1;
+            font-size: 0.9rem;
+            font-weight: 650;
+            text-transform: uppercase;
+        }
+
+        .testing-summary p {
+            margin: 0;
+            color: #eef6fa;
+        }
+
+        /* =========================================
+           TECHNOLOGIES
+           ========================================= */
+
+        .technology-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 9px;
+            padding: 0;
+            margin: 22px 0 0;
+            list-style: none;
+        }
+
+        .technology-list li {
+            padding: 7px 11px;
+            color: var(--primary-dark);
+            font-size: 0.9rem;
+            font-weight: 650;
+            border: 1px solid #b8ddd8;
+            border-radius: 999px;
+            background: var(--accent-light);
+        }
+
+        /* =========================================
+           BUTTONS
+           ========================================= */
+
+        .button-row {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            margin-top: 24px;
+        }
+
+        .button {
+            display: inline-block;
+            padding: 12px 18px;
+            color: #ffffff;
+            font-weight: 700;
+            text-decoration: none;
+            border-radius: 8px;
+            background: var(--secondary);
+            transition:
+                transform 0.2s ease,
+                background 0.2s ease;
+        }
+
+        .button:hover,
+        .button:focus {
+            color: #ffffff;
+            background: var(--primary-dark);
+            transform: translateY(-2px);
+        }
+
+        .button-outline {
+            color: var(--primary);
+            border: 2px solid var(--primary);
+            background: transparent;
+        }
+
+        .button-outline:hover,
+        .button-outline:focus {
+            color: #ffffff;
+            background: var(--primary);
+        }
+
+        /* =========================================
+           PAGE NAVIGATION
+           ========================================= */
+
+        .page-navigation {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 20px;
+            padding: 26px;
+            border-radius: var(--radius);
+            background: var(--primary-dark);
+        }
+
+        .page-navigation p {
+            margin: 0;
+            color: #d8e7f1;
+        }
+
+        .page-navigation strong {
+            display: block;
+            color: #ffffff;
+            font-size: 1.1rem;
+        }
+
+        .navigation-buttons {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .page-navigation a {
+            flex-shrink: 0;
+            padding: 11px 16px;
+            color: var(--primary-dark);
+            font-weight: 750;
+            text-decoration: none;
+            border-radius: 8px;
+            background: #ffffff;
+        }
+
+        .page-navigation a:hover,
+        .page-navigation a:focus {
+            background: var(--accent-light);
+        }
+
+        /* =========================================
+           FOOTER
+           ========================================= */
+
+        .site-footer {
+            padding: 34px 0;
+            color: #d8e7f1;
+            background: var(--primary-dark);
+        }
+
+        .footer-content {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 20px;
+        }
+
+        .footer-content p {
+            margin: 0;
+        }
+
+        .footer-content a {
+            color: #ffffff;
+            font-weight: 650;
+            text-decoration: none;
+        }
+
+        .footer-content a:hover,
+        .footer-content a:focus {
+            text-decoration: underline;
+        }
+
+        /* =========================================
+           RESPONSIVE DESIGN
+           ========================================= */
+
+        @media (max-width: 900px) {
+
+            .container {
+                width: min(100% - 40px, 1050px);
+            }
+
+            .fact-grid,
+            .improvement-grid,
+            .performance-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .database-flow {
+                grid-template-columns: 1fr;
+            }
+
+            .flow-arrow {
+                text-align: center;
+                transform: rotate(90deg);
+            }
+
+            .testing-summary {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 680px) {
+
+            body {
+                font-size: 16px;
+                line-height: 1.65;
+            }
+
+            .container {
+                width: calc(100% - 30px);
+            }
+
+            .site-header {
+                position: static;
+            }
+
+            .nav-container {
+                min-height: auto;
+                padding: 14px 0;
+                align-items: flex-start;
+                flex-direction: column;
+                gap: 12px;
+            }
+
+            .site-nav {
+                display: grid;
+                grid-template-columns: repeat(2, 1fr);
+                width: 100%;
+                gap: 8px;
+            }
+
+            .site-nav a {
+                width: 100%;
+                padding: 10px 8px;
+                text-align: center;
+                background: #f4f7fa;
+                border: 1px solid var(--border);
+            }
+
+            .page-hero {
+                padding: 52px 0;
+            }
+
+            .page-hero h1 {
+                font-size: clamp(2rem, 10vw, 2.7rem);
+            }
+
+            .hero-description {
+                font-size: 1rem;
+            }
+
+            .hero-details {
+                gap: 7px;
+            }
+
+            .hero-details span {
+                padding: 6px 9px;
+                font-size: 0.78rem;
+            }
+
+            main {
+                padding: 38px 0 55px;
+            }
+
+            .content-section {
+                padding: 22px;
+                margin-bottom: 22px;
+            }
+
+            .fact-grid,
+            .improvement-grid,
+            .performance-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .table-wrapper {
+                width: 100%;
+                overflow-x: auto;
+                -webkit-overflow-scrolling: touch;
+            }
+
+            table {
+                min-width: 650px;
+            }
+
+            th,
+            td {
+                padding: 12px;
+                font-size: 0.9rem;
+            }
+
+            .testing-summary {
+                grid-template-columns: 1fr;
+                padding: 20px;
+            }
+
+            .test-number {
+                text-align: center;
+            }
+
+            .test-number strong {
+                font-size: 2.8rem;
+            }
+
+            .button-row {
+                flex-direction: column;
+                width: 100%;
+            }
+
+            .button-row .button {
+                width: 100%;
+                text-align: center;
+            }
+
+            .page-navigation {
+                align-items: stretch;
+                flex-direction: column;
+            }
+
+            .navigation-buttons {
+                flex-direction: column;
+                width: 100%;
+            }
+
+            .page-navigation a {
+                width: 100%;
+                text-align: center;
+            }
+
+            .footer-content {
+                align-items: flex-start;
+                flex-direction: column;
+            }
+        }
+
+        @media (max-width: 420px) {
+
+            .container {
+                width: calc(100% - 22px);
+            }
+
+            .site-nav {
+                grid-template-columns: 1fr;
+            }
+
+            .page-hero {
+                padding: 42px 0;
+            }
+
+            .page-hero h1 {
+                font-size: 2rem;
+            }
+
+            .content-section {
+                padding: 18px;
+            }
+
+            .hero-details span {
+                width: 100%;
+                text-align: center;
+            }
+        }
+    </style>
 </head>
 
 <body>
-    <header>
-        <nav>
-            <a href="index.html">Home</a>
-        </nav>
+
+    <!-- =========================================
+         HEADER
+         ========================================= -->
+
+    <header class="site-header">
+
+        <div class="container nav-container">
+
+            <a
+                class="site-name"
+                href="index.html"
+            >
+                Monique Henry
+            </a>
+
+            <nav
+                class="site-nav"
+                aria-label="Main navigation"
+            >
+                <a href="index.html">
+                    Home
+                </a>
+
+                <a href="#overview">
+                    Overview
+                </a>
+
+                <a href="#improvements">
+                    Improvements
+                </a>
+
+                <a href="#reflection">
+                    Reflection
+                </a>
+
+                <a href="algorithms.html">
+                    Previous Enhancement
+                </a>
+            </nav>
+
+        </div>
+
     </header>
 
+
+    <!-- =========================================
+         HERO
+         ========================================= -->
+
+    <section class="page-hero">
+
+        <div class="container">
+
+            <p class="eyebrow">
+                CS 499 Enhancement Three
+            </p>
+
+            <h1>
+                Databases
+            </h1>
+
+            <p class="hero-description">
+                A database-engineering enhancement of the Grazioso Salvare
+                Rescue Match Recommendation System focused on validation,
+                security, query efficiency, indexing, controlled data access,
+                and maintainability.
+            </p>
+
+            <div class="hero-details">
+                <span>Original Course: CS 340</span>
+                <span>MongoDB</span>
+                <span>PyMongo</span>
+                <span>Schema Validation</span>
+                <span>Compound Indexes</span>
+                <span>Secure CRUD</span>
+                <span>Audit Logging</span>
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================================
+         MAIN
+         ========================================= -->
+
     <main>
-        <h1>Databases</h1>
 
-        <p>
-            This page presents Enhancement Three of my Grazioso Salvare
-            Rescue Match Recommendation System.
-        </p>
+        <div class="container">
 
-        <p>
-            The complete artifact overview, database improvements,
-            performance evidence, reflection narrative, screenshots,
-            and source-code links will be presented here.
-        </p>
 
-        <a href="index.html">
-            Return to the ePortfolio Homepage
-        </a>
+            <!-- Artifact Overview -->
+
+            <section
+                id="overview"
+                class="content-section"
+            >
+
+                <h2>
+                    Artifact Overview
+                </h2>
+
+                <p>
+                    The artifact selected for the database category is the
+                    Grazioso Salvare Rescue Match Recommendation System,
+                    originally developed from my CS 340: Client/Server
+                    Development project.
+                </p>
+
+                <p>
+                    The original application used Python, Dash, Pandas,
+                    MongoDB, and a custom <code>AnimalShelter</code> class to
+                    retrieve animal shelter records and support interactive
+                    rescue filters, a table, visualization, and map.
+                </p>
+
+                <p>
+                    Although the original project demonstrated a functional
+                    client/server database connection, the database
+                    implementation primarily relied on the original
+                    <code>animals</code> collection and general query
+                    dictionaries. It did not include a formally validated
+                    application schema, controlled migration, database-side
+                    pagination, aggregation pipelines, audit logging,
+                    optimized compound indexes, or a complete secure
+                    record-specific CRUD interface.
+                </p>
+
+                <div class="fact-grid">
+
+                    <article class="fact-card">
+
+                        <h3>
+                            Original Collection
+                        </h3>
+
+                        <p>
+                            <code>animals</code> was preserved as the original
+                            CS 340 data source.
+                        </p>
+
+                    </article>
+
+                    <article class="fact-card">
+
+                        <h3>
+                            Enhanced Collection
+                        </h3>
+
+                        <p>
+                            <code>animals_enhanced</code> stores normalized
+                            and validated application records.
+                        </p>
+
+                    </article>
+
+                    <article class="fact-card">
+
+                        <h3>
+                            Primary Focus
+                        </h3>
+
+                        <p>
+                            Data integrity, security, query performance,
+                            controlled access, and maintainability.
+                        </p>
+
+                    </article>
+
+                    <article class="fact-card">
+
+                        <h3>
+                            Final Integration
+                        </h3>
+
+                        <p>
+                            The database enhancement supports both the
+                            modular dashboard and the recommendation engine.
+                        </p>
+
+                    </article>
+
+                </div>
+
+            </section>
+
+
+            <!-- Why Selected -->
+
+            <section class="content-section">
+
+                <h2>
+                    Why I Selected This Artifact
+                </h2>
+
+                <p>
+                    I selected this artifact because it provides a clear
+                    before-and-after demonstration of my growth in database
+                    design and development. The original dashboard contained
+                    a working MongoDB connection, but its database layer was
+                    primarily focused on basic storage and retrieval.
+                </p>
+
+                <p>
+                    Enhancement Three gave me the opportunity to evaluate the
+                    database as a complete system rather than only as a data
+                    source. I addressed schema design, data migration, query
+                    construction, performance, security, auditability, and
+                    integration with the software and algorithmic
+                    enhancements completed earlier in the capstone.
+                </p>
+
+            </section>
+
+
+            <!-- Original vs Enhanced -->
+
+            <section
+                id="improvements"
+                class="content-section"
+            >
+
+                <h2>
+                    Original and Enhanced Database Design
+                </h2>
+
+                <p class="section-introduction">
+                    The database enhancement transformed the original basic
+                    MongoDB implementation into a more structured,
+                    validated, secure, and maintainable data-access service.
+                </p>
+
+                <div class="table-wrapper">
+
+                    <table>
+
+                        <thead>
+                            <tr>
+                                <th>
+                                    Area
+                                </th>
+
+                                <th>
+                                    Original Artifact
+                                </th>
+
+                                <th>
+                                    Enhancement Three
+                                </th>
+                            </tr>
+                        </thead>
+
+                        <tbody>
+
+                            <tr>
+                                <td>
+                                    Data Structure
+                                </td>
+
+                                <td>
+                                    Used original imported records without a
+                                    formal validated application schema.
+                                </td>
+
+                                <td>
+                                    Records are migrated into
+                                    <code>animals_enhanced</code> with
+                                    normalized fields, generated
+                                    <code>record_uid</code> values, and
+                                    MongoDB schema validation.
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td>
+                                    Query Design
+                                </td>
+
+                                <td>
+                                    Accepted general query dictionaries and
+                                    frequently relied on application-side
+                                    processing.
+                                </td>
+
+                                <td>
+                                    Queries are built from approved fields
+                                    and support database-side filtering,
+                                    projection, sorting, and pagination.
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td>
+                                    Performance
+                                </td>
+
+                                <td>
+                                    Did not contain purpose-built indexes or
+                                    documented execution-plan comparisons.
+                                </td>
+
+                                <td>
+                                    Uses purposeful single-field, compound,
+                                    and specialized indexes verified through
+                                    MongoDB execution-plan testing.
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td>
+                                    CRUD Security
+                                </td>
+
+                                <td>
+                                    Broad update and delete behavior could
+                                    affect more records than intended.
+                                </td>
+
+                                <td>
+                                    Uses record-specific operations, approved
+                                    field lists, validation, protected
+                                    collections, and explicit deletion
+                                    confirmation.
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td>
+                                    Auditability
+                                </td>
+
+                                <td>
+                                    Did not maintain a database mutation
+                                    history.
+                                </td>
+
+                                <td>
+                                    Successful and rejected mutation attempts
+                                    are recorded in
+                                    <code>audit_logs</code>.
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td>
+                                    Configuration
+                                </td>
+
+                                <td>
+                                    Database connection information was
+                                    closely tied to application source code.
+                                </td>
+
+                                <td>
+                                    Centralized configuration and environment
+                                    variables separate connection settings
+                                    from primary application logic.
+                                </td>
+                            </tr>
+
+                        </tbody>
+
+                    </table>
+
+                </div>
+
+            </section>
+
+
+            <!-- Key Improvements -->
+
+            <section class="content-section">
+
+                <h2>
+                    Key Database Improvements
+                </h2>
+
+                <div class="improvement-grid">
+
+                    <article class="improvement-card">
+
+                        <h3>
+                            Schema Validation
+                        </h3>
+
+                        <p>
+                            MongoDB validation rules help ensure that enhanced
+                            records contain the expected fields, value types,
+                            identifiers, and geographic information before
+                            entering the application collection.
+                        </p>
+
+                    </article>
+
+
+                    <article class="improvement-card">
+
+                        <h3>
+                            Controlled Migration
+                        </h3>
+
+                        <p>
+                            Original records are evaluated, normalized, and
+                            migrated into a separate enhanced collection
+                            without modifying the preserved CS 340 source
+                            collection.
+                        </p>
+
+                    </article>
+
+
+                    <article class="improvement-card">
+
+                        <h3>
+                            Database-Side Queries
+                        </h3>
+
+                        <p>
+                            Filtering, projection, sorting, pagination,
+                            distinct-value retrieval, and aggregation are
+                            performed through MongoDB instead of unnecessarily
+                            loading the complete dataset into the application.
+                        </p>
+
+                    </article>
+
+
+                    <article class="improvement-card">
+
+                        <h3>
+                            Purposeful Indexing
+                        </h3>
+
+                        <p>
+                            Indexes were designed around representative
+                            dashboard query patterns and evaluated with
+                            execution statistics to verify that MongoDB
+                            actually selected the intended indexed plans.
+                        </p>
+
+                    </article>
+
+
+                    <article class="improvement-card">
+
+                        <h3>
+                            Secure CRUD Operations
+                        </h3>
+
+                        <p>
+                            Create, update, and delete operations use
+                            validation, approved fields, record-specific
+                            identifiers, collection protections, and explicit
+                            confirmation for destructive actions.
+                        </p>
+
+                    </article>
+
+
+                    <article class="improvement-card">
+
+                        <h3>
+                            Audit Logging
+                        </h3>
+
+                        <p>
+                            Successful and rejected database mutation
+                            attempts are recorded so operations can be traced
+                            and reviewed.
+                        </p>
+
+                    </article>
+
+                </div>
+
+            </section>
+
+
+            <!-- Database Flow -->
+
+            <section class="content-section">
+
+                <h2>
+                    Enhanced Data Flow
+                </h2>
+
+                <p class="section-introduction">
+                    The enhanced database design separates the preserved
+                    original data from the validated collection used by the
+                    application.
+                </p>
+
+                <div class="database-flow">
+
+                    <article class="flow-card">
+
+                        <h3>
+                            Original Data
+                        </h3>
+
+                        <p>
+                            The original <code>animals</code> collection is
+                            retained as the preserved CS 340 artifact.
+                        </p>
+
+                    </article>
+
+                    <div
+                        class="flow-arrow"
+                        aria-hidden="true"
+                    >
+                        →
+                    </div>
+
+                    <article class="flow-card">
+
+                        <h3>
+                            Validation and Migration
+                        </h3>
+
+                        <p>
+                            Records are cleaned, normalized, checked, and
+                            assigned generated identifiers before migration.
+                        </p>
+
+                    </article>
+
+                    <div
+                        class="flow-arrow"
+                        aria-hidden="true"
+                    >
+                        →
+                    </div>
+
+                    <article class="flow-card">
+
+                        <h3>
+                            Enhanced Application Data
+                        </h3>
+
+                        <p>
+                            The dashboard and recommendation engine use the
+                            validated <code>animals_enhanced</code>
+                            collection.
+                        </p>
+
+                    </article>
+
+                </div>
+
+            </section>
+
+
+            <!-- Security -->
+
+            <section class="content-section">
+
+                <h2>
+                    Database Security and Data Protection
+                </h2>
+
+                <p>
+                    Security was a major focus of Enhancement Three. The
+                    database layer was redesigned to reduce unnecessary trust
+                    in unrestricted queries and destructive operations.
+                </p>
+
+                <div class="security-panel">
+
+                    <h3>
+                        Security Safeguards
+                    </h3>
+
+                    <ul class="security-list">
+
+                        <li>
+                            Database configuration is separated from primary
+                            application source through environment-based
+                            configuration.
+                        </li>
+
+                        <li>
+                            Query and mutation fields are restricted to
+                            explicitly approved values.
+                        </li>
+
+                        <li>
+                            Updates and deletions target individual records
+                            using generated <code>record_uid</code> values.
+                        </li>
+
+                        <li>
+                            Delete operations require explicit confirmation.
+                        </li>
+
+                        <li>
+                            The original <code>animals</code> collection is
+                            protected from enhanced mutation operations.
+                        </li>
+
+                        <li>
+                            Successful and rejected create, update, and delete
+                            attempts are recorded in
+                            <code>audit_logs</code>.
+                        </li>
+
+                    </ul>
+
+                </div>
+
+            </section>
+
+
+            <!-- Performance -->
+
+            <section class="content-section">
+
+                <h2>
+                    Query Performance and Indexing
+                </h2>
+
+                <p>
+                    I did not treat index creation by itself as evidence of
+                    improved performance. Representative query patterns were
+                    evaluated using MongoDB execution plans before and after
+                    optimization.
+                </p>
+
+                <div class="performance-grid">
+
+                    <article class="performance-card">
+
+                        <h3>
+                            Before Optimization
+                        </h3>
+
+                        <strong>
+                            10,000 Records
+                        </strong>
+
+                        <p>
+                            Representative original queries examined the full
+                            10,000-record collection.
+                        </p>
+
+                    </article>
+
+
+                    <article class="performance-card">
+
+                        <h3>
+                            After Optimization
+                        </h3>
+
+                        <strong>
+                            Indexed Plans
+                        </strong>
+
+                        <p>
+                            MongoDB selected the intended indexes and examined
+                            matching keys and documents rather than scanning
+                            the complete collection.
+                        </p>
+
+                    </article>
+
+                </div>
+
+                <p>
+                    This process demonstrated the importance of designing
+                    indexes around actual query behavior and then verifying
+                    their use rather than assuming that an index will
+                    automatically improve every operation.
+                </p>
+
+            </section>
+
+
+            <!-- Evidence -->
+
+            <section class="content-section">
+
+                <h2>
+                    Enhancement Evidence
+                </h2>
+
+                <!--
+                    IMPORTANT:
+                    Replace the filename below with the exact name
+                    of the database screenshot you uploaded into
+                    assets/images.
+                -->
+
+                <figure class="evidence-figure">
+
+                    <img
+                        class="evidence-image"
+                        src="assets/images/database-enhancement-results.png"
+                        alt="Database enhancement evidence for the Grazioso Salvare Rescue Match Recommendation System"
+                    >
+
+                    <figcaption>
+                        Enhancement Three demonstrates the completed database
+                        integration supporting validated records, secure data
+                        access, optimized queries, and the Rescue Match
+                        Recommendation System.
+                    </figcaption>
+
+                </figure>
+
+                <ul class="technology-list">
+                    <li>MongoDB</li>
+                    <li>PyMongo</li>
+                    <li>JSON Schema Validation</li>
+                    <li>Data Migration</li>
+                    <li>Compound Indexes</li>
+                    <li>Aggregation Pipelines</li>
+                    <li>Pagination</li>
+                    <li>Secure CRUD</li>
+                    <li>Audit Logging</li>
+                    <li>Environment Variables</li>
+                </ul>
+
+            </section>
+
+
+            <!-- Testing -->
+
+            <section class="content-section">
+
+                <h2>
+                    Testing and Evaluation
+                </h2>
+
+                <p>
+                    Testing covered migration, validation, query behavior,
+                    secure CRUD operations, collection safeguards,
+                    integration, regression behavior, and live-dashboard
+                    functionality.
+                </p>
+
+                <div class="testing-summary">
+
+                    <div class="test-number">
+
+                        <strong>
+                            84
+                        </strong>
+
+                        <span>
+                            Passing Tests
+                        </span>
+
+                    </div>
+
+                    <p>
+                        The completed integrated test suite passed all
+                        84 automated tests. Manual testing also confirmed
+                        that the dashboard connected to
+                        <code>animals_enhanced</code>, loaded database-driven
+                        filter values, displayed records, produced rescue
+                        recommendations, updated the chart and map, and
+                        applied breed, age, outcome, and combined filters
+                        successfully.
+                    </p>
+
+                </div>
+
+                <p>
+                    Secure CRUD testing also confirmed field validation,
+                    original-collection protection, explicit deletion
+                    confirmation, audit logging, and cleanup of temporary
+                    test records.
+                </p>
+
+            </section>
+
+
+            <!-- Reflection -->
+
+            <section
+                id="reflection"
+                class="content-section"
+            >
+
+                <h2>
+                    Reflection Narrative
+                </h2>
+
+                <p>
+                    Enhancement Three strengthened my understanding of
+                    databases as complete systems rather than simply places
+                    where applications store records. The original CS 340
+                    artifact successfully connected a Python dashboard to
+                    MongoDB, but its database implementation was primarily
+                    focused on basic retrieval and CRUD functionality.
+                </p>
+
+                <p>
+                    One of the most important decisions I made was preserving
+                    the original <code>animals</code> collection and creating
+                    a separate <code>animals_enhanced</code> collection.
+                    This allowed me to maintain the integrity of the original
+                    artifact while developing a validated and normalized data
+                    structure for the enhanced application.
+                </p>
+
+                <p>
+                    The migration process showed me that database development
+                    requires careful attention to existing data quality.
+                    Source records had to be evaluated and normalized before
+                    they could be moved into a collection with stronger
+                    validation requirements. This required balancing ideal
+                    schema design with compatibility with real data.
+                </p>
+
+                <p>
+                    I also developed a stronger understanding of database
+                    performance. Adding an index does not automatically mean
+                    that a query is optimized. I used representative query
+                    patterns and MongoDB execution plans to evaluate whether
+                    the database selected the intended indexes and whether
+                    unnecessary collection scanning was reduced.
+                </p>
+
+                <p>
+                    Security was another major area of growth. I restricted
+                    query and mutation fields, separated database
+                    configuration from primary application logic, protected
+                    the original collection, required record-specific
+                    identifiers for sensitive operations, required explicit
+                    confirmation for deletion, and added audit logging.
+                    These changes reinforced the importance of anticipating
+                    how database operations could be misused or executed
+                    incorrectly.
+                </p>
+
+                <p>
+                    A challenge during the enhancement was maintaining
+                    compatibility with the earlier software-engineering and
+                    algorithm enhancements. Changes to the database interface
+                    affected the service layer and test doubles. This required
+                    me to update supporting components so that filtering,
+                    sorting, pagination, distinct-value retrieval, age
+                    boundaries, recommendations, and dashboard behavior
+                    continued to operate correctly.
+                </p>
+
+                <p>
+                    Testing reinforced the importance of evaluating both
+                    individual database operations and the complete system.
+                    The final automated suite passed 84 tests, while manual
+                    testing confirmed that the dashboard continued to work
+                    with the enhanced collection and recommendation engine.
+                </p>
+
+                <p>
+                    This enhancement demonstrates my ability to evaluate an
+                    existing database implementation and improve its
+                    correctness, performance, security, auditability, and
+                    maintainability. It also contributes strongly to the
+                    course outcome involving a security-focused mindset
+                    because the enhanced architecture anticipates unsafe
+                    operations and introduces safeguards to protect data and
+                    resources.
+                </p>
+
+                <p>
+                    Overall, Enhancement Three completed the transformation
+                    of the original CS 340 dashboard into a cohesive Rescue
+                    Match Recommendation System. The final artifact combines
+                    modular software architecture, algorithmic
+                    recommendation techniques, database engineering,
+                    automated testing, documentation, security controls, and
+                    user-focused decision support.
+                </p>
+
+            </section>
+
+
+            <!-- Artifact Files -->
+
+            <section class="content-section">
+
+                <h2>
+                    Artifact Files
+                </h2>
+
+                <p>
+                    The downloadable artifact contains the completed Database
+                    enhancement and its integration with the Rescue Match
+                    Recommendation System, including application source code,
+                    database-development materials, tests, configuration
+                    examples, and supporting documentation.
+                </p>
+
+                <p>
+                    Sensitive credentials, local environment files, cache
+                    files, and temporary development materials are excluded
+                    from the published package.
+                </p>
+
+                <div class="button-row">
+
+                    <!--
+                        IMPORTANT:
+                        Replace this path with the exact location
+                        and filename of your Enhancement Three ZIP.
+                    -->
+
+                    <a
+                        class="button"
+                        href="artifacts/databases/CS499-Enhancement-Three-Databases.zip"
+                        download
+                    >
+                        Download Enhanced Artifact
+                    </a>
+
+
+                    <a
+                        class="button button-outline"
+                        href="https://github.com/MoniqueHenry7"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                    >
+                        View My GitHub Profile
+                    </a>
+
+
+                    <a
+                        class="button button-outline"
+                        href="index.html"
+                    >
+                        Return to Homepage
+                    </a>
+
+                </div>
+
+            </section>
+
+
+            <!-- Final Navigation -->
+
+            <section class="page-navigation">
+
+                <p>
+                    <strong>
+                        Technical Enhancements Complete
+                    </strong>
+
+                    Software Design, Algorithms and Data Structures,
+                    and Databases
+                </p>
+
+                <div class="navigation-buttons">
+
+                    <a href="algorithms.html">
+                        ← Previous Enhancement
+                    </a>
+
+                    <a href="index.html">
+                        Return to ePortfolio
+                    </a>
+
+                </div>
+
+            </section>
+
+        </div>
+
     </main>
+
+
+    <!-- =========================================
+         FOOTER
+         ========================================= -->
+
+    <footer class="site-footer">
+
+        <div class="container footer-content">
+
+            <p>
+                © 2026 Monique Henry.
+                Computer Science ePortfolio.
+            </p>
+
+            <a href="index.html">
+                Return to Homepage
+            </a>
+
+        </div>
+
+    </footer>
+
 </body>
 </html>
