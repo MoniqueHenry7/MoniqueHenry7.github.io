@@ -268,6 +268,39 @@
         .assessment-content h3:first-of-type {
             margin-top: 30px;
         }
+
+        /* CODE REVIEW */
+        
+        .code-review {
+            padding: 72px 0;
+            background: var(--background);
+        }
+        
+        .code-review-card {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 32px;
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            background: var(--surface);
+            box-shadow: var(--shadow);
+        }
+        
+        .code-review-content h3 {
+            margin: 0 0 14px;
+            color: var(--primary);
+            font-size: 1.35rem;
+        }
+        
+        .code-review-content p {
+            margin: 0 0 18px;
+            color: var(--text);
+            line-height: 1.75;
+        }
+        
+        .code-review-content .button {
+            margin-top: 8px;
+        }
         
         /* About section */
 
@@ -603,6 +636,22 @@
             }
         }
         
+        @media (max-width: 680px) {
+        
+            .code-review {
+                padding: 48px 0;
+            }
+        
+            .code-review-card {
+                padding: 22px;
+            }
+        
+            .code-review-content .button {
+                width: 100%;
+                text-align: center;
+            }
+        }
+        
         /* =========================================
            RESPONSIVE / MOBILE DESIGN
            ========================================= */
@@ -914,6 +963,7 @@
                 
             <nav class="site-nav" aria-label="Main navigation">
                 <a href="#self-assessment">Self-Assessment</a>
+                <a href="#code-review">Code Review</a>
                 <a href="#about">About</a>
                 <a href="#artifacts">Artifacts</a>
                 <a href="#outcomes">Course Outcomes</a>
@@ -1305,6 +1355,73 @@
                         that are maintainable, secure, efficient, and responsive to the
                         needs of users and organizations.
                     </p>
+        
+                </div>
+        
+            </div>
+        </section>
+
+        <!-- =========================================
+        CODE REVIEW
+        ========================================= -->
+        
+        <section
+            id="code-review"
+            class="code-review"
+        >
+            <div class="container">
+        
+                <div class="section-heading">
+        
+                    <p class="section-label">
+                        Capstone Planning and Evaluation
+                    </p>
+        
+                    <h2>
+                        Code Review
+                    </h2>
+        
+                    <p>
+                        Before implementing the three capstone enhancements, I
+                        conducted a comprehensive review of the original Grazioso
+                        Salvare dashboard to evaluate its existing design and identify
+                        opportunities for improvement.
+                    </p>
+        
+                </div>
+        
+                <div class="code-review-card">
+        
+                    <div class="code-review-content">
+        
+                        <h3>
+                            CS 499 Code Review
+                        </h3>
+        
+                        <p>
+                            The code review evaluates the original artifact across
+                            software design and engineering, algorithms and data
+                            structures, and databases. It identifies the strengths and
+                            limitations of the existing implementation and explains the
+                            enhancement strategy used to transform the original
+                            dashboard into the Rescue Match Recommendation System.
+                        </p>
+        
+                        <p>
+                            The review provides the foundation for the three technical
+                            enhancements presented throughout this ePortfolio.
+                        </p>
+        
+                        <a
+                            class="button button-primary"
+                            href="https://youtu.be/fxiQNf2oR6M"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                        >
+                            Watch Code Review Video
+                        </a>
+        
+                    </div>
         
                 </div>
         
