@@ -5,7 +5,7 @@
 
     <meta
         name="viewport"
-        content="width=devi:contentReference[oaicite:0]{index=0}
+        content="width=device-width, initial-scale=1.0"
     >
 
     <meta
@@ -499,50 +499,136 @@
         }
 
         /* Course Outcomes */
-
-        .outcome-statement {
-            margin-bottom: 0;
+ 
+        .outcomes {
+            padding: 72px 0 88px;
+            background: #f4f7fa;
         }
         
+        .outcomes .section-heading {
+            max-width: 950px;
+            margin-bottom: 40px;
+        }
+        
+        /* Two-column card layout */
+        .outcomes-grid {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 24px;
+        }
+        
+        /* Individual outcome card */
+        .outcome-card {
+            display: flex;
+            flex-direction: column;
+            padding: 30px;
+            border: 1px solid var(--border);
+            border-top: 5px solid var(--secondary);
+            border-radius: 14px;
+            background: #ffffff;
+            box-shadow: 0 8px 24px rgba(15, 45, 68, 0.08);
+            transition:
+                transform 0.2s ease,
+                box-shadow 0.2s ease;
+        }
+        
+        .outcome-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 14px 32px rgba(15, 45, 68, 0.13);
+        }
+        
+        /* Fifth card fills the last row */
+        .outcome-card:last-child {
+            grid-column: 1 / -1;
+        }
+        
+        /* Outcome number */
+        .outcome-number {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 46px;
+            height: 46px;
+            margin-bottom: 20px;
+            color: #ffffff;
+            font-size: 0.9rem;
+            font-weight: 800;
+            border-radius: 10px;
+            background: var(--primary);
+        }
+        
+        /* Card heading */
+        .outcome-card h3 {
+            margin: 0 0 16px;
+            color: var(--primary-dark);
+            font-size: 1.35rem;
+            line-height: 1.3;
+        }
+        
+        /* Official outcome wording */
+        .outcome-statement {
+            margin: 0;
+            color: var(--text);
+            font-size: 0.96rem;
+            line-height: 1.7;
+        }
+        
+        /* Evidence area */
         .outcome-evidence {
-            margin-top: 20px;
+            display: flex;
+            flex: 1;
+            flex-direction: column;
+            margin-top: 22px;
             padding-top: 18px;
             border-top: 1px solid var(--border);
         }
         
         .outcome-evidence strong {
             display: block;
-            margin-bottom: 8px;
+            margin-bottom: 9px;
             color: var(--primary);
             font-size: 0.95rem;
         }
         
         .outcome-evidence p {
-            margin: 0 0 14px;
+            margin: 0 0 18px;
             color: var(--muted);
-            font-size: 0.94rem;
+            font-size: 0.93rem;
             line-height: 1.7;
         }
         
+        /* Evidence links */
         .outcome-links {
             display: flex;
             flex-wrap: wrap;
-            gap: 8px 16px;
+            gap: 9px;
+            margin-top: auto;
         }
         
         .outcome-links a {
+            display: inline-block;
+            padding: 7px 11px;
             color: var(--secondary);
-            font-size: 0.9rem;
+            font-size: 0.83rem;
             font-weight: 700;
+            line-height: 1.3;
             text-decoration: none;
+            border: 1px solid #c8dce9;
+            border-radius: 999px;
+            background: #f5f9fc;
+            transition:
+                color 0.2s ease,
+                background 0.2s ease,
+                border-color 0.2s ease;
         }
         
         .outcome-links a:hover,
         .outcome-links a:focus {
-            color: var(--primary-dark);
-            text-decoration: underline;
+            color: #ffffff;
+            border-color: var(--secondary);
+            background: var(--secondary);
         }
-
+        
         /* Footer */
 
         .site-footer {
@@ -587,7 +673,7 @@
             }
 
             .about-grid,
-            .outcome-grid {
+            .outcomes-grid {
                 grid-template-columns: 1fr;
             }
         }
@@ -681,8 +767,12 @@
             .improvement-grid,
             .algorithm-grid,
             .complexity-grid,
-            .outcome-grid {
+            .outcomes-grid {
                 grid-template-columns: 1fr;
+            }
+
+            .outcome-card:last-child {
+                grid-column: auto;
             }
         
             .artifact-grid {
@@ -821,7 +911,7 @@
             .complexity-grid,
             .artifact-grid,
             .about-grid,
-            .outcome-grid,
+            .outcomes-grid,
             .score-grid {
                 grid-template-columns: 1fr;
             }
@@ -833,7 +923,43 @@
             .score-card {
                 padding: 18px;
             }
-        
+
+            .outcomes {
+                padding: 48px 0 60px;
+            }
+            
+            .outcomes-grid {
+                grid-template-columns: 1fr;
+                gap: 18px;
+            }
+            
+            .outcome-card {
+                padding: 22px;
+            }
+            
+            .outcome-card:last-child {
+                grid-column: auto;
+            }
+            
+            .outcome-number {
+                width: 40px;
+                height: 40px;
+                margin-bottom: 16px;
+            }
+            
+            .outcome-card h3 {
+                font-size: 1.2rem;
+            }
+            
+            .outcome-links {
+                flex-direction: column;
+                align-items: stretch;
+            }
+            
+            .outcome-links a {
+                width: 100%;
+                text-align: center;
+            }
         
             /* Images */
         
@@ -969,11 +1095,6 @@
             <a class="site-name" href="index.html">
                 Monique Henry
             </a>
-
-            <nav
-                class="site-nav"
-                aria-label="Main navigation"
-            >
                 
             <nav class="site-nav" aria-label="Main navigation">
                 <a href="#self-assessment">Self-Assessment</a>
