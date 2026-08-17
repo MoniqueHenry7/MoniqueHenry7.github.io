@@ -498,35 +498,49 @@
             margin-top: 25px;
         }
 
-        /* Outcomes */
+        /* Course Outcomes */
 
-        .outcomes {
-            background: var(--background);
+        .outcome-statement {
+            margin-bottom: 0;
         }
-
-        .outcome-grid {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 18px;
+        
+        .outcome-evidence {
+            margin-top: 20px;
+            padding-top: 18px;
+            border-top: 1px solid var(--border);
         }
-
-        .outcome-item {
-            padding: 24px;
-            border-left: 5px solid var(--accent);
-            border-radius: 8px;
-            background: var(--surface);
-            box-shadow: 0 5px 18px rgba(15, 45, 68, 0.07);
-        }
-
-        .outcome-item h3 {
-            margin: 0 0 8px;
+        
+        .outcome-evidence strong {
+            display: block;
+            margin-bottom: 8px;
             color: var(--primary);
-            font-size: 1.08rem;
+            font-size: 0.95rem;
         }
-
-        .outcome-item p {
-            margin: 0;
+        
+        .outcome-evidence p {
+            margin: 0 0 14px;
             color: var(--muted);
+            font-size: 0.94rem;
+            line-height: 1.7;
+        }
+        
+        .outcome-links {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px 16px;
+        }
+        
+        .outcome-links a {
+            color: var(--secondary);
+            font-size: 0.9rem;
+            font-weight: 700;
+            text-decoration: none;
+        }
+        
+        .outcome-links a:hover,
+        .outcome-links a:focus {
+            color: var(--primary-dark);
+            text-decoration: underline;
         }
 
         /* Footer */
@@ -1695,83 +1709,291 @@
             </div>
         </section>
 
+     <!-- =========================================
+     COMPUTER SCIENCE COURSE OUTCOMES
+     ========================================= -->
+        
         <section
             id="outcomes"
             class="outcomes"
         >
             <div class="container">
+        
                 <div class="section-heading">
-                    <h2>Computer Science Course Outcomes</h2>
-
-                    <p>
-                        The enhanced artifacts collectively demonstrate the
-                        five major outcomes of the Computer Science program.
+        
+                    <p class="section-label">
+                        Program Competencies
                     </p>
+        
+                    <h2>
+                        Computer Science Course Outcomes
+                    </h2>
+        
+                    <p>
+                        The completed capstone enhancements, professional
+                        self-assessment, code review, and supporting documentation
+                        provide evidence of my achievement of the five Computer
+                        Science program outcomes.
+                    </p>
+        
                 </div>
-
-                <div class="outcome-grid">
-                    <article class="outcome-item">
+        
+                <div class="outcomes-grid">
+        
+                    <!-- Course Outcome 1 -->
+        
+                    <article class="outcome-card">
+        
+                        <span class="outcome-number">
+                            01
+                        </span>
+        
                         <h3>
                             Collaborative Environments
                         </h3>
-
-                        <p>
-                            Use collaborative tools, documentation, version
-                            control, and professional development practices to
-                            support computing projects.
+        
+                        <p class="outcome-statement">
+                            Employ strategies for building collaborative environments
+                            that enable diverse audiences to support organizational
+                            decision making in the field of computer science.
                         </p>
+        
+                        <div class="outcome-evidence">
+        
+                            <strong>
+                                Evidence demonstrated through:
+                            </strong>
+        
+                            <p>
+                                The code review, professional self-assessment, project
+                                documentation, and user-centered recommendation system
+                                demonstrate communication of design decisions,
+                                consideration of stakeholder needs, and support for
+                                informed decision making.
+                            </p>
+        
+                            <div class="outcome-links">
+                                <a href="#code-review">
+                                    Code Review →
+                                </a>
+        
+                                <a href="#self-assessment">
+                                    Self-Assessment →
+                                </a>
+        
+                                <a href="software-design.html#improvements">
+                                    Software Design Evidence →
+                                </a>
+                            </div>
+        
+                        </div>
+        
                     </article>
-
-                    <article class="outcome-item">
+        
+        
+                    <!-- Course Outcome 2 -->
+        
+                    <article class="outcome-card">
+        
+                        <span class="outcome-number">
+                            02
+                        </span>
+        
                         <h3>
                             Professional Communication
                         </h3>
-
-                        <p>
-                            Communicate technical concepts clearly through
-                            source-code documentation, narratives,
-                            visualizations, testing evidence, and the
-                            ePortfolio.
+        
+                        <p class="outcome-statement">
+                            Design, develop, and deliver professional-quality oral,
+                            written, and visual communications that are coherent,
+                            technically sound, and appropriately adapted to specific
+                            audiences and contexts.
                         </p>
+        
+                        <div class="outcome-evidence">
+        
+                            <strong>
+                                Evidence demonstrated through:
+                            </strong>
+        
+                            <p>
+                                The ePortfolio combines an oral code review, written
+                                narratives and reflections, technical documentation,
+                                visual evidence, comparison tables, testing results,
+                                and a professional web presentation.
+                            </p>
+        
+                            <div class="outcome-links">
+                                <a href="#code-review">
+                                    Oral Communication →
+                                </a>
+        
+                                <a href="#self-assessment">
+                                    Written Communication →
+                                </a>
+        
+                                <a href="software-design.html#reflection">
+                                    Enhancement Reflection →
+                                </a>
+                            </div>
+        
+                        </div>
+        
                     </article>
-
-                    <article class="outcome-item">
+        
+        
+                    <!-- Course Outcome 3 -->
+        
+                    <article class="outcome-card">
+        
+                        <span class="outcome-number">
+                            03
+                        </span>
+        
                         <h3>
                             Algorithmic Problem-Solving
                         </h3>
-
-                        <p>
-                            Design and evaluate computing solutions using
-                            appropriate algorithms and data structures while
-                            considering performance and design trade-offs.
+        
+                        <p class="outcome-statement">
+                            Design and evaluate computing solutions that solve a given
+                            problem using algorithmic principles and computer science
+                            practices and standards appropriate to its solution, while
+                            managing the trade-offs involved in design choices.
                         </p>
+        
+                        <div class="outcome-evidence">
+        
+                            <strong>
+                                Evidence demonstrated through:
+                            </strong>
+        
+                            <p>
+                                Enhancement Two applies dictionaries, sets, binary
+                                search, weighted scoring, bounded min-heap top-k
+                                selection, and caching while evaluating performance,
+                                memory, maintainability, and design trade-offs.
+                            </p>
+        
+                            <div class="outcome-links">
+                                <a href="algorithms.html#improvements">
+                                    Algorithm Improvements →
+                                </a>
+        
+                                <a href="algorithms.html#reflection">
+                                    Algorithm Reflection →
+                                </a>
+                            </div>
+        
+                        </div>
+        
                     </article>
-
-                    <article class="outcome-item">
+        
+        
+                    <!-- Course Outcome 4 -->
+        
+                    <article class="outcome-card">
+        
+                        <span class="outcome-number">
+                            04
+                        </span>
+        
                         <h3>
-                            Innovative Computing Solutions
+                            Computing Techniques, Skills, and Tools
                         </h3>
-
-                        <p>
-                            Apply well-founded computing techniques to transform
-                            a basic filtering dashboard into a useful,
-                            explainable recommendation system.
+        
+                        <p class="outcome-statement">
+                            Demonstrate an ability to use well-founded and innovative
+                            techniques, skills, and tools in computing practices for
+                            the purpose of implementing computer solutions that deliver
+                            value and accomplish industry-specific goals.
                         </p>
+        
+                        <div class="outcome-evidence">
+        
+                            <strong>
+                                Evidence demonstrated through:
+                            </strong>
+        
+                            <p>
+                                The three enhancements apply modular architecture,
+                                Python, Dash, MongoDB, algorithmic recommendation
+                                techniques, automated testing, Git/GitHub, database
+                                optimization, and secure development to produce a
+                                complete Rescue Match Recommendation System.
+                            </p>
+        
+                            <div class="outcome-links">
+                                <a href="software-design.html#improvements">
+                                    Software Engineering →
+                                </a>
+        
+                                <a href="algorithms.html#improvements">
+                                    Algorithms →
+                                </a>
+        
+                                <a href="databases.html#improvements">
+                                    Databases →
+                                </a>
+                            </div>
+        
+                        </div>
+        
                     </article>
-
-                    <article class="outcome-item">
+        
+        
+                    <!-- Course Outcome 5 -->
+        
+                    <article class="outcome-card">
+        
+                        <span class="outcome-number">
+                            05
+                        </span>
+        
                         <h3>
                             Security Mindset
                         </h3>
-
-                        <p>
-                            Protect data and system resources through
-                            environment-based configuration, validation,
-                            approved fields, secure CRUD operations, collection
-                            safeguards, and audit logging.
+        
+                        <p class="outcome-statement">
+                            Develop a security mindset that anticipates adversarial
+                            exploits in software architecture and designs to expose
+                            potential vulnerabilities, mitigate design flaws, and
+                            ensure privacy and enhanced security of data and resources.
                         </p>
+        
+                        <div class="outcome-evidence">
+        
+                            <strong>
+                                Evidence demonstrated through:
+                            </strong>
+        
+                            <p>
+                                Enhancement Three applies environment-based
+                                configuration, schema and input validation, approved
+                                query and mutation fields, record-specific CRUD,
+                                protected collections, deletion confirmation, and
+                                audit logging to reduce unsafe data operations.
+                            </p>
+        
+                            <div class="outcome-links">
+                                <a href="databases.html#improvements">
+                                    Database Safeguards →
+                                </a>
+        
+                                <a href="databases.html#reflection">
+                                    Security Reflection →
+                                </a>
+        
+                                <a href="#self-assessment">
+                                    Security Mindset Reflection →
+                                </a>
+                            </div>
+        
+                        </div>
+        
                     </article>
+        
                 </div>
+        
             </div>
         </section>
     </main>
